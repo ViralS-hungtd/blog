@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\ArticleRequest;
 
-class ArticleCrudController extends CrudController
+class BlogCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -24,7 +24,7 @@ class ArticleCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Article');
+        $this->crud->setModel('App\Models\Blog');
         $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/article');
         $this->crud->setEntityNameStrings('article', 'articles');
 
@@ -58,7 +58,6 @@ class ArticleCrudController extends CrudController
                     },
                 ],
             ]);
-            $this->crud->addColumn('tags');
 
             $this->crud->addFilter([ // select2 filter
                 'name' => 'category_id',
@@ -68,24 +67,6 @@ class ArticleCrudController extends CrudController
                 return \App\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
             }, function ($value) { // if the filter is active
                 $this->crud->addClause('where', 'category_id', $value);
-            });
-
-            $this->crud->addFilter([ // select2_multiple filter
-                'name' => 'tags',
-                'type' => 'select2_multiple',
-                'label'=> 'Tags',
-            ], function () {
-                return \App\Models\Tag::all()->keyBy('id')->pluck('name', 'id')->toArray();
-            }, function ($values) { // if the filter is active
-                $this->crud->query = $this->crud->query->whereHas('tags', function ($q) use ($values) {
-                    foreach (json_decode($values) as $key => $value) {
-                        if ($key == 0) {
-                            $q->where('tags.id', $value);
-                        } else {
-                            $q->orWhere('tags.id', $value);
-                        }
-                    }
-                });
             });
         });
 
@@ -136,16 +117,7 @@ class ArticleCrudController extends CrudController
                 'inline_create' => true,
                 'ajax' => true,
             ]);
-            $this->crud->addField([
-                'label' => 'Tags',
-                'type' => 'relationship',
-                'name' => 'tags', // the method that defines the relationship in your Model
-                'entity' => 'tags', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                'inline_create' => ['entity' => 'tag'],
-                'ajax' => true,
-            ]);
+
             $this->crud->addField([
                 'name' => 'status',
                 'label' => 'Status',
@@ -166,14 +138,5 @@ class ArticleCrudController extends CrudController
     public function fetchCategory()
     {
         return $this->fetch(\App\Models\Category::class);
-    }
-
-    /**
-     * Respond to AJAX calls from the select2 with entries from the Tag model.
-     * @return JSON
-     */
-    public function fetchTags()
-    {
-        return $this->fetch(\App\Models\Tag::class);
     }
 }

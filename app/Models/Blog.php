@@ -7,7 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Blog extends Model
 {
     use CrudTrait;
     use Sluggable, SluggableScopeHelpers;
@@ -18,7 +18,7 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'articles';
+    protected $table = 'blogs';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
@@ -59,11 +59,6 @@ class Article extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'article_tag');
     }
 
     /*

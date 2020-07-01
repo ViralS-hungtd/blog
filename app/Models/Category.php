@@ -62,9 +62,9 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
-    public function articles()
+    public function blogs()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Blog::class);
     }
 
     /*
