@@ -42,11 +42,6 @@ class BlogCrudController extends CrudController
             ]);
             $this->crud->addColumn('status');
             $this->crud->addColumn([
-                'name' => 'featured',
-                'label' => 'Featured',
-                'type' => 'check',
-            ]);
-            $this->crud->addColumn([
                 'label' => 'Category',
                 'type' => 'select',
                 'name' => 'category_id',
@@ -98,6 +93,11 @@ class BlogCrudController extends CrudController
                 'default' => date('Y-m-d'),
             ]);
             $this->crud->addField([
+                'name' => 'short_description',
+                'label' => 'Short Description',
+                'type' => 'textarea'
+            ]);
+            $this->crud->addField([
                 'name' => 'content',
                 'label' => 'Content',
                 'type' => 'ckeditor',
@@ -121,12 +121,12 @@ class BlogCrudController extends CrudController
             $this->crud->addField([
                 'name' => 'status',
                 'label' => 'Status',
-                'type' => 'enum',
-            ]);
-            $this->crud->addField([
-                'name' => 'featured',
-                'label' => 'Featured item',
-                'type' => 'checkbox',
+                'type'        => 'radio',
+                'options'     => [
+                    // the key will be stored in the db, the value will be shown as label;
+                    0 => "Draft",
+                    1 => "Published"
+                ],
             ]);
         });
     }

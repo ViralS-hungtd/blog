@@ -3,14 +3,11 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Cviebrock\EloquentSluggable\Sluggable;
-use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Customer extends Model
 {
     use CrudTrait;
-    use Sluggable, SluggableScopeHelpers;
 
     /*
     |--------------------------------------------------------------------------
@@ -18,30 +15,16 @@ class Blog extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'blogs';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-    // protected $guarded = ['id'];
-    protected $fillable = ['slug', 'title', 'content', 'image', 'status', 'category_id', 'short_description', 'date'];
+    protected $table = 'customers';
+    // protected $primaryKey = 'id';
+    // public $timestamps = false;
+    protected $guarded = ['id'];
+     protected $fillable = [
+         'email',
+         'name'
+     ];
     // protected $hidden = [];
     // protected $dates = [];
-    protected $casts = [
-        'date'      => 'date',
-    ];
-
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'slug_or_title',
-            ],
-        ];
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -55,39 +38,17 @@ class Blog extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class, 'category_id');
-    }
-
     /*
     |--------------------------------------------------------------------------
     | SCOPES
     |--------------------------------------------------------------------------
     */
 
-    public function scopePublished($query)
-    {
-        return $query->where('status', 1)
-                    ->where('date', '<=', date('Y-m-d'))
-                    ->orderBy('date', 'DESC');
-    }
-
     /*
     |--------------------------------------------------------------------------
-    | ACCESORS
+    | ACCESSORS
     |--------------------------------------------------------------------------
     */
-
-    // The slug is created automatically from the "title" field if no slug exists.
-    public function getSlugOrTitleAttribute()
-    {
-        if ($this->slug != '') {
-            return $this->slug;
-        }
-
-        return $this->title;
-    }
 
     /*
     |--------------------------------------------------------------------------

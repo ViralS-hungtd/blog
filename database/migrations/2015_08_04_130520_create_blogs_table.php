@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateArticlesTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,11 +17,11 @@ class CreateArticlesTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('title');
             $table->string('slug')->default('');
+            $table->text('short_description')->nullable();
             $table->text('content');
             $table->string('image')->nullable();
-            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
+            $table->boolean('status')->default(true)->comment('1 : PUBLISHED, 0 : DRAFT');
             $table->date('date');
-            $table->boolean('featured')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

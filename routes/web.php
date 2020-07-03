@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/about', function () {
+    return view('front/about');
+});
+Route::group([
+    'namespace'  => 'Front',
+], function () { // custom admin routes
+    Route::get('/blog', 'BlogController@index');
+    Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
+    Route::get('/category/{id}', 'BlogController@category')->name('category');
+}); // this should be the absolute last line of this file
