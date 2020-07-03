@@ -33,7 +33,22 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::find($id);
+        $relatedBlogs = Blog::where('category_id', $blog->category_id)
+            ->where('status', true)
+            ->orderBy('id', 'DESC')
+            ->take(4)
+            ->get();
+        $categories = Category::all();
+        $hotBlogs = Blog::where('status', true)->orderBy('id', 'DESC')->take(8)->get();
 
-        return view('front.detail', compact('blog'));
+        return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
+    }
+
+    public function knowledge()
+    {
+        $categories = Category::all();
+        $hotBlogs = Blog::where('status', true)->orderBy('id', 'DESC')->take(8)->get();
+
+        return view('front.knowledge_info', compact('categories', 'hotBlogs'));
     }
 }
