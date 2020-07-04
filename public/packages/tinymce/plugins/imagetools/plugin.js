@@ -828,7 +828,7 @@
         'type'
       ]);
       var errorMsg = errorType ? getServiceErrorMsg(errorType) : 'Invalid JSON in service error message';
-      return 'ImageProxy Service error: ' + errorMsg;
+      return 'ImageProxy Services error: ' + errorMsg;
     };
     var handleServiceError = function (status, blob) {
       return Utils.readBlob(blob).then(function (text) {

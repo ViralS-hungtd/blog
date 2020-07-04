@@ -22,7 +22,7 @@ class Blog extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug', 'title', 'content', 'image', 'status', 'category_id', 'short_description', 'date'];
+    protected $fillable = ['slug', 'author', 'title', 'content', 'image', 'status', 'category_id', 'short_description', 'date', 'type'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [

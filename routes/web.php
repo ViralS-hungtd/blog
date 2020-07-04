@@ -12,35 +12,28 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('front/index');
-})->name('index');
-
-Route::get('/event', function () {
-    return view('front/event');
-})->name('event');
-
-Route::get('/knowledge', function () {
+Route::get('/an-toan-tren-khong-gian-mang', function () {
     return view('front/knowledge');
 })->name('knowledge');
 
-Route::get('/about', function () {
+Route::get('/ve-cyberkid', function () {
     return view('front/about');
 })->name('about');
 
-Route::get('/quiz', function () {
+Route::get('/cau-hoi', function () {
     return view('front/quiz');
 })->name('quiz');
-Route::get('/course', function () {
+Route::get('/khoa-hoc', function () {
     return view('front/course');
 })->name('course');
 Route::group([
     'namespace'  => 'Front',
 ], function () { // custom admin routes
+    Route::get('/', 'BlogController@main')->name('index');
     Route::get('/blog', 'BlogController@index')->name('blog');
+    Route::get('/su-kien', 'BlogController@event')->name('event');
     Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
-    Route::get('/category/{id}', 'BlogController@category')->name('category');
-    Route::get('/knowledge/info', 'BlogController@knowledge')->name('knowledge.info');
-    Route::get('/knowledge/power', 'BlogController@power')->name('knowledge.power');
+    Route::get('/danh-muc/{id}', 'BlogController@category')->name('category');
+    Route::get('/an-toan-tren-khong-gian-mang/hieu-ve-khong-gian-mang', 'BlogController@knowledge')->name('knowledge.info');
+    Route::get('/an-toan-tren-khong-gian-mang/quyen-tre-em', 'BlogController@power')->name('knowledge.power');
 }); // this should be the absolute last line of this file

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Http\Requests\CategoryRequest;
@@ -20,16 +21,40 @@ class CategoryCrudController extends CrudController
     {
         CRUD::setModel("App\Models\Category");
         CRUD::setRoute(config('backpack.base.route_prefix', 'admin').'/category');
-        CRUD::setEntityNameStrings('category', 'categories');
+        CRUD::setEntityNameStrings('Danh mục', 'Danh mục');
     }
 
     protected function setupListOperation()
     {
-        CRUD::addColumn('name');
-        CRUD::addColumn('slug');
-        CRUD::addColumn('parent');
+        CRUD::addColumn([
+            'name' => 'name',
+            'label' => 'Tên danh mục'
+        ]);
+        CRUD::addColumn([
+            'name' => 'slug',
+            'label' => 'Nhãn'
+        ]);
+        CRUD::addColumn([
+            'name' => 'parent',
+            'type'         => 'relationship',
+            'label' => 'Danh mục cha',
+             'entity'    => 'parent', // the method that defines the relationship in your Model
+             'attribute' => 'name', // foreign key attribute that is shown to user
+             'model'     => Category::class, // foreign key model
+
+        ]);
+        CRUD::addColumn([
+            'name' => 'type',
+            'label' => 'Loại danh mục',
+            'type' => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                0 => "Blog",
+                1 => "Tin tức, sự kiện"
+            ],
+        ]);
         CRUD::addColumn([   // select_multiple: n-n relationship (with pivot table)
-            'label'     => 'Blogs', // Table column heading
+            'label'     => 'Bài viết / Blog', // Table column heading
             'type'      => 'relationship_count',
             'name'      => 'blogs', // the method that defines the relationship in your Model
             'wrapper'   => [
@@ -54,17 +79,27 @@ class CategoryCrudController extends CrudController
 
         CRUD::addField([
             'name' => 'name',
-            'label' => 'Name',
+            'label' => 'Tên danh mục',
         ]);
         CRUD::addField([
             'name' => 'slug',
-            'label' => 'Slug (URL)',
+            'label' => 'Link (URL)',
             'type' => 'text',
-            'hint' => 'Will be automatically generated from your name, if left empty.',
+            'hint' => 'Sẽ tự sinh ra khi để trống',
             // 'disabled' => 'disabled'
         ]);
         CRUD::addField([
-            'label' => 'Parent',
+            'name' => 'type',
+            'label' => 'Loại danh mục',
+            'type' => 'radio',
+            'options'     => [
+                // the key will be stored in the db, the value will be shown as label;
+                0 => "Blog",
+                1 => "Tin tức, sự kiện"
+            ],
+        ]);
+        CRUD::addField([
+            'label' => 'Danh mục cha',
             'type' => 'select',
             'name' => 'parent_id',
             'entity' => 'parent',

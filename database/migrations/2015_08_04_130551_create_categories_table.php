@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('parent_id')->default(0)->nullable();
             $table->string('name');
+            $table->tinyInteger('type')->default(0)->comment('0 : bài viết , 1 : tin tức');
             $table->timestamps();
             $table->softDeletes();
         });
