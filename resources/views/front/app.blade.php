@@ -71,14 +71,23 @@
                     </h3>
                 </div>
                 <div class="col-lg-6">
-                    <form method="POST" action="{{ route('customer.store')  }}">
+                    <form method="POST" action="{{ route('store.customer')  }}">
                         @csrf
                         <div class="form-row">
-                            <div class="col-12 mb-4">
+                            <div class="col-12 mb-3">
                                 <input class="form-control" name="name" placeholder="Tên" type="text">
+                                @if ($errors->has('name'))
+                                    <p style="color: red"> {{ $errors->first('name') }}</p>
+                                @endif
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <input class="form-control" name="email" placeholder="Email" type="text">
+                                @if ($errors->has('email'))
+                                    <p style="color: red"> {{ $errors->first('email') }}</p>
+                                @endif
+                            </div>
+                            <div class="col-12 text-center text-sm-left">
+                                <button class="btn btn-primary">ĐĂNG KÝ</button>
                             </div>
                         </div>
                     </form>

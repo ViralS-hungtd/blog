@@ -18,7 +18,7 @@
           <p>Hãy cùng CyberKid làm bài trắc nghiệm dưới đây để tìm hiểu xem<br/>
             bạn đã thực sự hiểu con trên không gian mạng chưa nhé!
           </p>
-          <a href="quiz.blade.php" class="btn btn-info">LÀM TRẮC NGHIỆM</a>
+          <a href="{{ route('quiz') }}" class="btn btn-info">LÀM TRẮC NGHIỆM</a>
         </div>
       </div>
     </div>

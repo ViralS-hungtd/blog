@@ -30,6 +30,7 @@ Route::group([
     'namespace'  => 'Front',
 ], function () { // custom admin routes
     Route::get('/', 'BlogController@main')->name('index');
+    Route::post('/customer/store', 'CustomerController@store')->name('store.customer');
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/su-kien', 'BlogController@event')->name('event');
     Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');

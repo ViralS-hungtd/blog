@@ -13,7 +13,7 @@
                         giúp con an toàn trên không gian mạng không nhé!
                     </p>
                     <p class="d-block d-lg-none mb-4">Hãy cùng Cyber Kid tìm hiểu nhé!</p>
-                    <a href="quiz.blade.php" class="btn btn-primary mb-5 mb-lg-0">Làm bài quiz</a>
+                    <a href="{{ route('quiz') }}" class="btn btn-primary mb-5 mb-lg-0">Làm bài quiz</a>
                 </div>
                 <div class="col-lg-6 text-center pb-5 pb-sm-0">
                     <img class="cyber-hero__img" src="/assets/images/rocket.png" alt="">
@@ -50,7 +50,7 @@
             <div class="col-md-6 col-lg-4 mt-4">
                 <span class="cyber-news__more">
                     TIN TỨC & SỰ KIỆN
-                    <a href="#">Xem thêm
+                    <a href="{{ route('event') }}">Xem thêm
                         <i class="fas fa-long-arrow-alt-right"></i>
                     </a>
                 </span>
@@ -58,7 +58,7 @@
             <div class="col-md-6 col-lg-4 mt-4">
  <span class="cyber-news__more">
             HIỂU VỀ KHÔNG GIAN MẠNG
-            <a href="#">Xem thêm
+            <a href="{{ route('knowledge.info') }}">Xem thêm
               <i class="fas fa-long-arrow-alt-right"></i>
             </a>
           </span>
@@ -68,7 +68,7 @@
             QUYỀN CỦA TRẺ EM
             <br/>
             TRÊN KHÔNG GIAN MẠNG
-            <a href="#">Xem thêm
+            <a href="{{ route('knowledge.power') }}">Xem thêm
               <i class="fas fa-long-arrow-alt-right"></i>
             </a>
           </span>

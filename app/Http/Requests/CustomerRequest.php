@@ -15,7 +15,7 @@ class CustomerRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+       return true;
     }
 
     /**
@@ -26,7 +26,8 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+             'name' => 'required|max:255',
+            'email' => 'required|email'
         ];
     }
 
@@ -50,7 +51,9 @@ class CustomerRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'name.required' => 'Tên không được để trống',
+            'email.required' => 'Email không được để trống',
+            'email.email' => 'Email phải có định dạng @exemple'
         ];
     }
 }
