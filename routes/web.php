@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('front/index');
 })->name('index');
 
+Route::get('/event', function () {
+    return view('front/event');
+})->name('event');
+
 Route::get('/knowledge', function () {
     return view('front/knowledge');
 })->name('knowledge');
@@ -38,4 +42,5 @@ Route::group([
     Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
     Route::get('/category/{id}', 'BlogController@category')->name('category');
     Route::get('/knowledge/info', 'BlogController@knowledge')->name('knowledge.info');
+    Route::get('/knowledge/power', 'BlogController@power')->name('knowledge.power');
 }); // this should be the absolute last line of this file

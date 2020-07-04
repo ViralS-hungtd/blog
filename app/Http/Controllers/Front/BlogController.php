@@ -51,4 +51,12 @@ class BlogController extends Controller
 
         return view('front.knowledge_info', compact('categories', 'hotBlogs'));
     }
+
+    public function power()
+    {
+        $categories = Category::all();
+        $hotBlogs = Blog::where('status', true)->orderBy('id', 'DESC')->take(8)->get();
+
+        return view('front.knowledge_power', compact('categories', 'hotBlogs'));
+    }
 }
