@@ -8,8 +8,8 @@
                     {{ $blog->title }}
                 </h3>
                 <div class="cyber-blog__author-info">
-                    <p class="mr-5">Bút danh, nguồn trích dẫn</p>
-                    <p>{{ $blog->date }}</p>
+                    <p class="mr-5">{{ $blog->author }}</p>
+                    <p>{{ date('d-m-Y', strtotime($blog->date)) }}</p>
                 </div>
                 <div class="row">
                     <div class="col-lg-2">

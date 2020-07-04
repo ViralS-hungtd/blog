@@ -18,7 +18,7 @@
     <div class="container cyber-container fade-in">
         <div class="cyber-header">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.blade.php">
+                <a class="navbar-brand" href="{{ route('index') }}">
                     <img class="cyber-header__logo" src="{{ asset('assets/images/logo.png')  }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -30,19 +30,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item {{ \Request::is('ve-cyberkid') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('about') }}">Về Cyberkid</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ \Request::is('an-toan-tren-khong-gian-mang') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('knowledge') }}">An toàn trên không gian mạng</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ \Request::is('blog') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ \Request::is('khoa-hoc') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('course') }}">Khóa học 3D design</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ \Request::is('su-kien') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('event') }}">Tin tức & Sự kiện</a>
                         </li>
                         <li class="nav-item">
