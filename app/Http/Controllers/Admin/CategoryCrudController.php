@@ -22,6 +22,7 @@ class CategoryCrudController extends CrudController
         CRUD::setModel("App\Models\Category");
         CRUD::setRoute(config('backpack.base.route_prefix', 'admin').'/category');
         CRUD::setEntityNameStrings('Danh mục', 'Danh mục');
+        $this->crud->denyAccess(['update', 'create', 'delete', 'show']);
     }
 
     protected function setupListOperation()
@@ -34,15 +35,7 @@ class CategoryCrudController extends CrudController
             'name' => 'slug',
             'label' => 'Nhãn'
         ]);
-        CRUD::addColumn([
-            'name' => 'parent',
-            'type'         => 'relationship',
-            'label' => 'Danh mục cha',
-             'entity'    => 'parent', // the method that defines the relationship in your Model
-             'attribute' => 'name', // foreign key attribute that is shown to user
-             'model'     => Category::class, // foreign key model
 
-        ]);
         CRUD::addColumn([
             'name' => 'type',
             'label' => 'Loại danh mục',
