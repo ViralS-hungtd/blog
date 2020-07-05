@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class BlogController extends Controller
 {
@@ -36,6 +37,7 @@ class BlogController extends Controller
 
     public function show($id)
     {
+        Cookie::queue('blog_id', $id, 60);
         $blog = Blog::find($id);
         $relatedBlogs = Blog::where('category_id', $blog->category_id)
             ->where('status', true)

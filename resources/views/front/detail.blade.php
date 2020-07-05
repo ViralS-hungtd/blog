@@ -39,11 +39,11 @@
                                 </div>
                                 <p class="validate-comment" style="color: red; margin-left: 70px"></p>
                                 <div class="cyber-blog__comment-action">
-{{--                                    @if(\Auth::user())--}}
+                                    @if(\Auth::user())
                                         <button class="btn btn-info comment-btn">Gửi bình luận</button>
-{{--                                    @else--}}
-{{--                                        <a target="_blank" href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>--}}
-{{--                                    @endif--}}
+                                    @else
+                                        <a target="_blank" href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
