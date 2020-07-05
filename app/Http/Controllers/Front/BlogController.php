@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -80,5 +82,16 @@ class BlogController extends Controller
         $otherBlogs = Blog::where('status', true)->orderBy('id', 'DESC')->skip(3)->take(6)->get();
 
         return view('front.index', compact('firstBlogs', 'otherBlogs'));
+    }
+
+    public function saveComment(Request $request)
+    {
+        Comment::create([
+            'content' => $request->des,
+            'blog_id' => $request->blog_id,
+            'user_id' => Auth::user()->id
+        ]);
+
+        return true;
     }
 }

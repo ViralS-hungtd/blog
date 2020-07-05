@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CustomerRequest;
+use App\Http\Requests\CommentRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class CustomerCrudController
+ * Class CommentCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CustomerCrudController extends CrudController
+class CommentCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class CustomerCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Customer::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/customer');
-        CRUD::setEntityNameStrings('Khách hàng', 'Khách hàng');
+        CRUD::setModel(\App\Models\Comment::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/comment');
+        CRUD::setEntityNameStrings('Bình luận', 'Bình luận');
         $this->crud->denyAccess(['create', 'update']);
     }
 
@@ -40,7 +40,33 @@ class CustomerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        $this->crud->addColumn([
+            'label' => 'Người viết',
+            'type' => 'select',
+            'name' => 'user_id',
+            'entity' => 'user',
+            'attribute' => 'name'
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Bài viết',
+            'type' => 'select',
+            'name' => 'blog_id',
+            'entity' => 'blog',
+            'attribute' => 'title',
+            'wrapper'   => [
+                'href' => function ($crud, $column, $entry, $related_key) {
+                    return backpack_url('article/'.$related_key.'/edit');
+                },
+            ],
+        ]);
+        $this->crud->addColumn([
+            'name' => 'content',
+            'label' => 'Nội dung bình luận'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'created_at',
+            'label' => 'Ngày tạo'
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -57,9 +83,12 @@ class CustomerCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CustomerRequest::class);
+        CRUD::setValidation(CommentRequest::class);
 
-        CRUD::setFromDb(); // fields
+        CRUD::field('user_id');
+        CRUD::field('blog_id');
+        CRUD::field('content');
+        CRUD::field('parent_id');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -77,5 +106,10 @@ class CustomerCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function setupShowOperation()
+    {
+        $this->setupListOperation();
     }
 }

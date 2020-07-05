@@ -9,3 +9,5 @@
 </li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('customer') }}'><i class='nav-icon la la-question'></i>Khách hàng</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('comment') }}'><i class='nav-icon la la-question'></i> Bình Luận</a></li>

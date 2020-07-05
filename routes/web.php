@@ -16,6 +16,9 @@ Route::get('/an-toan-tren-khong-gian-mang', function () {
     return view('front/knowledge');
 })->name('knowledge');
 
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 Route::get('/ve-cyberkid', function () {
     return view('front/about');
 })->name('about');
@@ -30,6 +33,7 @@ Route::group([
     'namespace'  => 'Front',
 ], function () { // custom admin routes
     Route::get('/', 'BlogController@main')->name('index');
+    Route::get('/save-comment', 'BlogController@saveComment')->name('save.comment');
     Route::post('/customer/store', 'CustomerController@store')->name('store.customer');
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/su-kien', 'BlogController@event')->name('event');

@@ -37,8 +37,13 @@
                                     <img class="cyber-blog__comment-avatar" src="/assets/images/family.png" alt="">
                                     <textarea class="cyber-blog__comment-textarea"></textarea>
                                 </div>
+                                <p class="validate-comment" style="color: red; margin-left: 70px"></p>
                                 <div class="cyber-blog__comment-action">
-                                    <button class="btn btn-info">Gửi bình luận</button>
+{{--                                    @if(\Auth::user())--}}
+                                        <button class="btn btn-info comment-btn">Gửi bình luận</button>
+{{--                                    @else--}}
+{{--                                        <a target="_blank" href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>--}}
+{{--                                    @endif--}}
                                 </div>
                             </div>
                         </div>
@@ -93,4 +98,28 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script>
+        $(document).on("click", ".comment-btn",function() {
+            let val = $('.cyber-blog__comment-textarea').val();
+            if(!val) {
+                $('.validate-comment').html('Không được để trống bình luận!');
+            } else {
+                $.ajax({
+                    url: '{{ route('save.comment') }}',
+                    data: {
+                        'des': val,
+                        'blog_id' : {{ $blog->id }}
+                    },
+                    success: function (res) {
+                        $('.cyber-blog__comment-textarea').val('');
+                        $('.validate-comment').empty();
+
+                    },
+                    dataType: 'BOOLEAN'
+                });
+            }
+        });
+    </script>
 @endsection
