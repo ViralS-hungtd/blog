@@ -72,23 +72,19 @@
                     </h3>
                 </div>
                 <div class="col-lg-6">
-                    <form method="POST" action="{{ route('store.customer')  }}">
+                    <form method="POST" class="register-form">
                         @csrf
                         <div class="form-row">
                             <div class="col-12 mb-3">
                                 <input class="form-control" name="name" placeholder="Tên" type="text">
-                                @if ($errors->has('name'))
-                                    <p style="color: red"> {{ $errors->first('name') }}</p>
-                                @endif
+                                <p style="color: red" class="validate validate_name"></p>
                             </div>
                             <div class="col-12 mb-3">
                                 <input class="form-control" name="email" placeholder="Email" type="text">
-                                @if ($errors->has('email'))
-                                    <p style="color: red"> {{ $errors->first('email') }}</p>
-                                @endif
+                                <p style="color: red" class="validate validate_email"></p>
                             </div>
                             <div class="col-12 text-center text-sm-left">
-                                <button class="btn btn-primary">ĐĂNG KÝ</button>
+                                <button class="register-btn btn btn-primary">ĐĂNG KÝ</button>
                             </div>
                         </div>
                     </form>
@@ -108,7 +104,26 @@
 <script src="{{ asset('assets/javascript/main.js') }}"></script>
 <script src="{{ asset('assets/javascript/toastr.min.js') }}"></script>
 <script>
-
+    $(document).on("click", ".register-btn",function() {
+        event.preventDefault();
+        let data = $('.register-form').serializeArray();
+        $.ajax({
+            type: "POST",
+            url: '{{ route('store.customer')  }}',
+            data: data,
+            success: (response) => {
+                toastr.success('Đăng kí thành công!');
+                $('.validate').empty();
+                $('.register-form').trigger("reset");
+            },
+            error : (errors) => {
+                let messages = errors.responseJSON.errors;
+                $.each(messages, function(key,val) {
+                    $(`.validate_${key}`).html(val);
+                });
+            }
+        });
+    });
 </script>
 @stack('scripts')
 @yield('scripts')

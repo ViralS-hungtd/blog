@@ -14,9 +14,5 @@ class CustomerController extends Controller
     public function store(CustomerRequest $request)
     {
         Customer::create($request->all());
-
-        \Alert::success('Đăng kí thành công , bạn sẽ sớm nhận được thông tin liên hệ')->flash();
-
-        return redirect()->route('index');
     }
 }
