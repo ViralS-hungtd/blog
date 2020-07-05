@@ -107,6 +107,9 @@
 <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 <script src="{{ asset('assets/javascript/main.js') }}"></script>
 <script src="{{ asset('assets/javascript/toastr.min.js') }}"></script>
+<script>
+
+</script>
 @stack('scripts')
 @yield('scripts')
 </body>
