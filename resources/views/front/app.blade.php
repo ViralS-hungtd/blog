@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/stylesheet/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/stylesheet/toastr.min.css') }}">
     <title>Về Cyber Kid | Cyber Kid</title>
 </head>
 
@@ -105,6 +106,7 @@
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 <script src="{{ asset('assets/javascript/main.js') }}"></script>
+<script src="{{ asset('assets/javascript/toastr.min.js') }}"></script>
 @stack('scripts')
 @yield('scripts')
 </body>

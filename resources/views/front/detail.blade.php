@@ -112,12 +112,12 @@
                         'des': val,
                         'blog_id' : {{ $blog->id }}
                     },
-                    success: function (res) {
+                    dataType: 'BOOLEAN',
+                    complete : (response) => {
                         $('.cyber-blog__comment-textarea').val('');
                         $('.validate-comment').empty();
-
-                    },
-                    dataType: 'BOOLEAN'
+                        toastr.success('Bình luận của bạn đã được ghi lại!');
+                    }
                 });
             }
         });
