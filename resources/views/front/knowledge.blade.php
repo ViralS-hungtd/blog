@@ -40,7 +40,7 @@
     <style>
         .img-fix {
             max-width: 95%;
-            height: auto;
+            max-height: 407px;
         }
         .cyber-title.behind-cyan.text-center span {
             font-size: 25px;
