@@ -18,7 +18,7 @@
           <p>Hãy cùng CyberKid làm bài trắc nghiệm dưới đây để tìm hiểu xem<br/>
             bạn đã thực sự hiểu con trên không gian mạng chưa nhé!
           </p>
-          <a href="{{ route('quiz') }}" class="btn btn-info">LÀM TRẮC NGHIỆM</a>
+            <a href="https://www.tryinteract.com/share/quiz/5ee4fd8b666f7600147786a8" target="_blank" class="btn btn-info">LÀM TRẮC NGHIỆM</a>
         </div>
       </div>
     </div>
