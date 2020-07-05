@@ -5,8 +5,16 @@
         <div class="cyber-blog mt-5 row">
             <div class="col-md-8">
                 <div class="row">
-                    <h4 class="cyber-title behind-cyan text-center text-md-center" style="margin-left: 5%; font-size: 35px">
+                    <div class="col-md-12">
+                    <h4 class="d-none d-md-block cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto; font-size: 35px">
                         <span>Quyền trẻ em trên không gian mạng</span>
+                    </h4>
+                    <h4 class="d-block d-md-none cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto; font-size: 35px">
+                        <span>Quyền trẻ em trên</span>
+                        <br>
+                        <span> không gian mạng</span>
+                        <br/>
+                        <span> gian mạng</span>
                     </h4>
                     <img src="{{ asset('assets/images/image-01.png') }}" alt="" class="img-fix">
                     <div class="text-15px">
@@ -66,6 +74,7 @@
                         </p>
                     </div>
 
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 slide-top">

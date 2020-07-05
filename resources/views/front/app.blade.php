@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">--}}
     <meta name="description"
           content="CyberKid là tổ chức phi chính phủ - thông qua việc hợp tác với Chính phủ, Doanh nghiệp, Nhà trường và cha mẹ để biến không gian mạng trở thành một thế giới an toàn và tuyệt vời cho mọi đứa trẻ tại Việt Nam và khu vực.">
     <script src="https://kit.fontawesome.com/62018c92ba.js" crossorigin="anonymous"></script>
