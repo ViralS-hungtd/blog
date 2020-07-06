@@ -7,7 +7,7 @@ use App\Services\File;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\ArticleRequest;
 
-class BlogCrudController extends CrudController
+class PostCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +27,9 @@ class BlogCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Blog');
-        $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/article');
-        $this->crud->setEntityNameStrings('Bài viết/Blog', 'Bài viết/Blog');
-        $this->crud->addClause('where', 'type', '=', 0);
+        $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/post');
+        $this->crud->setEntityNameStrings('Tin tức/Sự kiện', 'Tin tức/Sự kiện');
+        $this->crud->addClause('where', 'type', '=', 1);
 
         /*
         |--------------------------------------------------------------------------
@@ -184,8 +184,8 @@ class BlogCrudController extends CrudController
             $input['image'] = File::saveFile('public/images', $request->image);
         }
 
-        $input['type'] = 0;
-        $input['category_id']  = 1;
+        $input['type'] = 1;
+        $input['category_id']  = 2;
         $item = $this->crud->create($input);
         $this->data['entry'] = $this->crud->entry = $item;
 
