@@ -23,6 +23,10 @@ Route::get('/ve-cyberkid', function () {
     return view('front/about');
 })->name('about');
 
+Route::get('/lien-he', function () {
+    return view('front/contact');
+})->name('contact');
+
 Route::get('/cau-hoi', function () {
     return view('front/quiz');
 })->name('quiz');

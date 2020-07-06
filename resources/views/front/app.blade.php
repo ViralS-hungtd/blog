@@ -47,8 +47,8 @@
                         <li class="nav-item {{ \Request::is('su-kien') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('event') }}">Tin tức & Sự kiện</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Liên hệ</a>
+                        <li class="nav-item"{{ \Request::is('lien-he') ? 'active' : '' }}>
+                            <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
                         </li>
                     </ul>
                     <form class="cyber-header__form d-flex d-lg-block">
