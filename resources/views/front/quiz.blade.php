@@ -18,9 +18,9 @@
           <p>Hãy cùng CyberKid làm bài trắc nghiệm dưới đây để tìm hiểu xem<br/>
             bạn đã thực sự hiểu con trên không gian mạng chưa nhé!
           </p>
-          <a href="#" class="btn btn-info">LÀM TRẮC NGHIỆM</a>
+          <a href="#" data-toggle="collapse" data-target="#iframe-quiz-box" class="btn btn-info doing-quiz">LÀM TRẮC NGHIỆM</a>
         </div>
-      <div class="col-12 mt-2">
+      <div class="col-12 mt-2 collapse" id="iframe-quiz-box">
           <iframe class="iframe-quiz" src="https://www.tryinteract.com/share/quiz/5ee4fd8b666f7600147786a8"></iframe>
       </div>
       </div>
