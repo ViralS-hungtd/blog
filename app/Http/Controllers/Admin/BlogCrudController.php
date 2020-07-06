@@ -161,9 +161,7 @@ class BlogCrudController extends CrudController
                 'type' => 'relationship',
                 'name' => 'category_id',
                 'entity' => 'category',
-                'attribute' => 'name',
-                'inline_create' => true,
-                'ajax' => true,
+                'attribute' => 'name'
             ]);
 
             $this->crud->addField([
