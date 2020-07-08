@@ -17,6 +17,7 @@ class CreateResultsTable extends Migration
             $table->id();
             $table->string('under');
             $table->string('upper');
+            $table->string('title');
             $table->text('result');
             $table->timestamps();
         });

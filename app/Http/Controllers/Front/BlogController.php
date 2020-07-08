@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ExamRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Question;
+use App\Models\Result;
+use App\Models\UserExam;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
@@ -103,5 +106,19 @@ class BlogController extends Controller
         $questions = Question::all();
 
         return view('front.quiz', compact('questions'));
+    }
+
+    public function storeQuiz(ExamRequest $request)
+    {
+        $total = array_sum($request->answer);
+        UserExam::create([
+            'name' => $request->name,
+            'job' => $request->job,
+            'email' => $request->email
+        ]);
+
+        $result = Result::where('under', '<=', $total)->where('upper', '>=', $total)->first();
+
+        return view('front.total', compact('result', 'total'));
     }
 }

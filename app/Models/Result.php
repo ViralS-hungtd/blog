@@ -24,6 +24,7 @@ class Result extends Model
     protected $fillable = [
         'under',
         'upper',
+        'title',
         'result'
     ];
     // protected $hidden = [];

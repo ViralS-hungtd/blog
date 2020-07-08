@@ -25,6 +25,7 @@
                 <div id="carouselExampleControls" class="carousel slide iframe-quiz" data-ride="carousel">
                     <div class="carousel-inner">
                         <form class="quiz-form">
+                            @csrf
                             @foreach($questions as $key1 => $question)
                                 <div class="carousel-item {{ $key1 == 0 ? 'active' : '' }}">
                                     <h4><b>{{ $question->question}}</b></h4>
@@ -42,12 +43,14 @@
                             @endforeach
                                 <div class="carousel-item">
                                     <h4><b>Vui lòng để lại thông tin cá nhân của bạn để cập nhật những thông tin mới nhất từ CyberKid</b></h4>
-                                    <p><span>Họ và tên :   </span> <input type="text" name="name"></p>
-                                    <p><span>Nghề nghiệp : </span><input type="text" name="job"></p>
-                                    <p><span>Email :       </span><input type="text" name="email"></p>
+                                    <p><span>Họ và tên :   </span><input type="text" name="name_customer"></p>
+                                    <p style="color: red" class="validate validate_name_customer"></p>
+                                    <p><span>Nghề nghiệp : </span><input type="text" name="job_customer"></p>
+                                    <p style="color: red" class="validate validate_job_customer"></p>
+                                    <p><span>Email :       </span><input type="text" name="email_customer"></p>
+                                    <p style="color: red" class="validate validate_email_customer"></p>
                                     <button type="submit" class="btn btn-result" aria-expanded="true">XEM KẾT QUẢ</button>
                                 </div>
-
                         </form>
                     </div>
                 </div>
@@ -57,7 +60,7 @@
     <style>
         .iframe-quiz {
             width: 50%;
-            height: 300px;
+            height: 380px;
             padding-top: 50px;
             margin-left: 25%;
         }
@@ -80,6 +83,24 @@
     <script>
         $('.carousel').carousel({
             interval: false
-        })
+        });
+        $(document).on("click", ".btn-result",function() {
+            event.preventDefault();
+            let data = $('.quiz-form').serializeArray();
+            $.ajax({
+                type: "POST",
+                url: '{{ route('store.quiz')  }}',
+                data: data,
+                success: (response) => {
+                    $('.quiz-form').html(response);
+                },
+                error : (errors) => {
+                    let messages = errors.responseJSON.errors;
+                    $.each(messages, function(key,val) {
+                        $(`.validate_${key}`).html(val);
+                    });
+                }
+            });
+        });
     </script>
 @endsection
