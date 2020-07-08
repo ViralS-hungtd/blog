@@ -27,9 +27,6 @@ Route::get('/lien-he', function () {
     return view('front/contact');
 })->name('contact');
 
-Route::get('/cau-hoi', function () {
-    return view('front/quiz');
-})->name('quiz');
 Route::get('/khoa-hoc', function () {
     return view('front/course');
 })->name('course');
@@ -45,4 +42,5 @@ Route::group([
     Route::get('/danh-muc/{id}', 'BlogController@category')->name('category');
     Route::get('/an-toan-tren-khong-gian-mang/hieu-ve-khong-gian-mang', 'BlogController@knowledge')->name('knowledge.info');
     Route::get('/an-toan-tren-khong-gian-mang/quyen-tre-em', 'BlogController@power')->name('knowledge.power');
+    Route::get('/cau-hoi', 'BlogController@quiz')->name('quiz');
 }); // this should be the absolute last line of this file

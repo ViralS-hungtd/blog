@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
@@ -95,5 +96,12 @@ class BlogController extends Controller
         ]);
 
         return true;
+    }
+
+    public function quiz()
+    {
+        $questions = Question::all();
+
+        return view('front.quiz', compact('questions'));
     }
 }
