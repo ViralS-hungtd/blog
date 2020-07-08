@@ -112,9 +112,10 @@ class BlogController extends Controller
     {
         $total = array_sum($request->answer);
         UserExam::create([
-            'name' => $request->name,
-            'job' => $request->job,
-            'email' => $request->email
+            'name' => $request->name_customer,
+            'job' => $request->job_customer,
+            'email' => $request->email_customer,
+            'point' => $total
         ]);
 
         $result = Result::where('under', '<=', $total)->where('upper', '>=', $total)->first();
