@@ -102,7 +102,7 @@
         @media (max-width: 500px) {
             .iframe-quiz {
                 width: 100%;
-                height: 400px;
+                height: 500px;
                 padding-top: 20px;
             }
             img.arrow {
