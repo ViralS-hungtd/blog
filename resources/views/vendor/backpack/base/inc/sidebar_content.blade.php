@@ -6,6 +6,7 @@
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('article') }}"><i class="nav-icon fa fa-newspaper-o"></i> Bài viết/Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('post') }}"><i class="nav-icon fa fa-newspaper-o"></i> Tin tức/ Sự kiện</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('category') }}"><i class="nav-icon fa fa-list"></i> Danh mục</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon fa fa-list"></i> Tag</a></li>
     </ul>
 </li>
 

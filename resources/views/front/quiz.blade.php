@@ -36,10 +36,6 @@
                                         <p><input type="radio" name="answer[{{ $key1 }}]" value="{{$key}}" {{ $key == array_key_first($answers) ? 'checked' : '' }}> {{ $answer }}</p>
                                     @endforeach
                                 </div>
-                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">>>
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
                             @endforeach
                                 <div class="carousel-item">
                                     <h4><b>Vui lòng để lại thông tin cá nhân của bạn để cập nhật những thông tin mới nhất từ CyberKid</b></h4>
@@ -51,6 +47,10 @@
                                     <p style="color: red" class="validate validate_email_customer"></p>
                                     <button type="submit" class="btn btn-result" aria-expanded="true">XEM KẾT QUẢ</button>
                                 </div>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">>>
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </form>
                     </div>
                 </div>
@@ -68,6 +68,9 @@
         .btn-result {
             background-color: #05a7ef;
             color: white;
+        }
+        .carousel-control-next,.carousel-control-next:hover  {
+            color: #0e111c;
         }
 
         @media (max-width: 500px) {

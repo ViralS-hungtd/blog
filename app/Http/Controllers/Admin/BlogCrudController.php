@@ -142,6 +142,17 @@ class BlogCrudController extends CrudController
                 ],
             ]);
             $this->crud->addField([
+                'label' => 'Tags',
+                'type' => 'select2_multiple',
+                'name' => 'tags', // the method that defines the relationship in your Model
+                'entity' => 'tags', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                'inline_create' => ['entity' => 'tag'],
+                'ajax' => true,
+            ]);
+
+            $this->crud->addField([
                 'name' => 'image',
                 'label' => 'Ảnh bài viết',
                 'type' => 'upload',

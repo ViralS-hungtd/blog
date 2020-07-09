@@ -22,8 +22,9 @@
                     <div class="col-lg-10">
                         {!! $blog->content !!}
                         <div class="cyber-blog__hashtag">
-                            <span class="badge badge-pill badge-info">#hashtag 1</span>
-                            <span class="badge badge-pill badge-info">#hashtag 2</span>
+                            @foreach($blog->tags as $tag)
+                                <span class="badge badge-pill badge-info">{{ $tag->name }}</span>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-12 my-5">

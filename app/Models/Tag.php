@@ -7,7 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Tag extends Model
 {
     use CrudTrait;
     use Sluggable, SluggableScopeHelpers;
@@ -18,16 +18,13 @@ class Blog extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'blogs';
+    protected $table = 'tags';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug', 'author', 'title', 'content', 'image', 'status', 'category_id', 'short_description', 'date', 'type'];
+    protected $fillable = ['name', 'slug'];
     // protected $hidden = [];
     // protected $dates = [];
-    protected $casts = [
-        'date'      => 'date',
-    ];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -38,7 +35,7 @@ class Blog extends Model
     {
         return [
             'slug' => [
-                'source' => 'slug_or_title',
+                'source' => 'slug_or_name',
             ],
         ];
     }
@@ -55,14 +52,9 @@ class Blog extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function category()
+    public function blog()
     {
-        return $this->belongsTo(Category::class, 'category_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'blog_tag');
+        return $this->belongsToMany(Blog::class, 'blog_tag');
     }
 
     /*
@@ -71,27 +63,20 @@ class Blog extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function scopePublished($query)
-    {
-        return $query->where('status', 1)
-                    ->where('date', '<=', date('Y-m-d'))
-                    ->orderBy('date', 'DESC');
-    }
-
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
     |--------------------------------------------------------------------------
     */
 
-    // The slug is created automatically from the "title" field if no slug exists.
-    public function getSlugOrTitleAttribute()
+    // The slug is created automatically from the "name" field if no slug exists.
+    public function getSlugOrNameAttribute()
     {
         if ($this->slug != '') {
             return $this->slug;
         }
 
-        return $this->title;
+        return $this->name;
     }
 
     /*
