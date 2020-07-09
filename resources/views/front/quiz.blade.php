@@ -42,22 +42,22 @@
                                         <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên : </label>
                                         <div class="col-sm-7">
                                             <input type="text" name="name_customer" class="form-control" placeholder="Họ và tên">
+                                            <small style="color: red" class="validate validate_name_customer"></small>
                                         </div>
-                                        <small style="color: red" class="validate validate_name_customer"></small>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputPassword" class="col-sm-3 col-form-label">Nghề nghiệp :</label>
                                         <div class="col-sm-7">
                                             <input type="text" name="job_customer" class="form-control"  placeholder="ghề nghiệp">
+                                            <small style="color: red" class="validate validate_job_customer"></small>
                                         </div>
-                                        <small style="color: red" class="validate validate_job_customer"></small>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputPassword" class="col-sm-3 col-form-label">Email :</label>
                                         <div class="col-sm-7">
                                             <input type="text" name="email_customer" class="form-control" placeholder="email@gmail.com">
+                                            <small style="color: red" class="validate validate_email_customer"></small>
                                         </div>
-                                        <small style="color: red" class="validate validate_email_customer"></small>
                                     </div>
                                     <button type="submit" class="btn btn-result float-md-right" aria-expanded="true">XEM KẾT QUẢ</button>
                                 </div>
