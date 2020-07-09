@@ -27,7 +27,7 @@ class SocialController extends Controller
                 'name'     => $getInfo->name,
                 'email'    => $getInfo->email,
                 'provider' => $provider,
-                'password' => bcrypt(str_random(8)),
+                'password' => bcrypt(rand(1, 9999999999)),
                 'provider_id' => $getInfo->id
             ]);
         }
