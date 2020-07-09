@@ -43,5 +43,6 @@ Route::group([
     Route::get('/an-toan-tren-khong-gian-mang/hieu-ve-khong-gian-mang', 'BlogController@knowledge')->name('knowledge.info');
     Route::get('/an-toan-tren-khong-gian-mang/quyen-tre-em', 'BlogController@power')->name('knowledge.power');
     Route::get('/cau-hoi', 'BlogController@quiz')->name('quiz');
+    Route::get('/cau-hoi/chi-tiet', 'BlogController@detailQuiz')->name('quiz.show');
     Route::get('/quiz/store', 'BlogController@storeQuiz')->name('store.quiz');
 }); // this should be the absolute last line of this file

@@ -11,8 +11,9 @@ class SocialController extends Controller
     {
         return Socialite::driver($provider)->redirect();
     }
-    public function callback($provider)
+    public function callback(Request $request, $provider)
     {
+        $request->session()->put('state', $state = $request->state);
         $getInfo = Socialite::driver($provider)->user();
         $user = $this->createUser($getInfo,$provider);
         auth()->login($user);
@@ -26,6 +27,7 @@ class SocialController extends Controller
                 'name'     => $getInfo->name,
                 'email'    => $getInfo->email,
                 'provider' => $provider,
+                'password' => bcrypt(str_random(8)),
                 'provider_id' => $getInfo->id
             ]);
         }
