@@ -25,7 +25,6 @@
                 <div id="carouselExampleControls" class="carousel slide iframe-quiz" data-ride="carousel">
                     <div class="carousel-inner">
                         <form class="quiz-form">
-                            @csrf
                             @foreach($questions as $key1 => $question)
                                 <div class="carousel-item {{ $key1 == 0 ? 'active' : '' }}">
                                     <h4><b>{{ $question->question}}</b></h4>
@@ -91,7 +90,6 @@
             event.preventDefault();
             let data = $('.quiz-form').serializeArray();
             $.ajax({
-                type: "POST",
                 url: '{{ route('store.quiz')  }}',
                 data: data,
                 success: (response) => {
