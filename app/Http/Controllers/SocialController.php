@@ -27,7 +27,7 @@ class SocialController extends Controller
             ->orderBy('id', 'DESC')
             ->take(4)
             ->get();
-        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('type',0)->orderBy('id', 'DESC')->get();
         $hotBlogs = Blog::where('status', true)->where('type', 0)->orderBy('id', 'DESC')->take(8)->get();
 
         return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
