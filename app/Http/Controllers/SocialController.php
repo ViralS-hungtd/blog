@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Validator,Redirect,Response,File;
@@ -18,7 +20,17 @@ class SocialController extends Controller
         $user = $this->createUser($getInfo,$provider);
         auth()->login($user);
         $blogId = Cookie::get('blog_id');
-        return redirect()->route('blog.show', $blogId);
+        Cookie::queue('blog_id', $blogId, 60);
+        $blog = Blog::find($blogId);
+        $relatedBlogs = Blog::where('category_id', $blog->category_id)
+            ->where('status', true)
+            ->orderBy('id', 'DESC')
+            ->take(4)
+            ->get();
+        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+        $hotBlogs = Blog::where('status', true)->where('type', 0)->orderBy('id', 'DESC')->take(8)->get();
+
+        return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
     }
     function createUser($getInfo,$provider){
         $user = User::where('provider_id', $getInfo->id)->first();
