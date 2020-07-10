@@ -41,17 +41,22 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        Cookie::queue('blog_id', $id, 60);
-        $blog = Blog::find($id);
-        $relatedBlogs = Blog::where('category_id', $blog->category_id)
-            ->where('status', true)
-            ->orderBy('id', 'DESC')
-            ->take(4)
-            ->get();
-        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
-        $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
+        try {
+            Cookie::queue('blog_id', $id, 60);
+            $blog = Blog::find($id);
+            $relatedBlogs = Blog::where('category_id', $blog->category_id)
+                ->where('status', true)
+                ->orderBy('id', 'DESC')
+                ->take(4)
+                ->get();
+            $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+            $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
 
-        return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
+            return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
+
     }
 
     public function knowledge()
