@@ -43,7 +43,7 @@
                                     @if(\Auth::user())
                                         <button class="btn btn-info comment-btn">Gửi bình luận</button>
                                     @else
-                                        <a target="_blank" href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>
+                                        <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>
                                     @endif
                                 </div>
                             </div>
