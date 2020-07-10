@@ -14,7 +14,7 @@
                         <br>
                         <span> gian mạng</span>
                     </h4>
-                    <img src="{{ asset('assets/images/image-01.png') }}" alt="" class="img-fix">
+                        <a href="{{ route('knowledge.power') }}"><img src="{{ asset('assets/images/image-01.png') }}" alt="" class="img-fix"></a>
                         <div class="row mt-2">
                             <div class="col-md-12">
                             <p class="cyber-know-text">
@@ -38,7 +38,7 @@
                     <h4 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
                         <span>Hiểu về không gian mạng</span>
                     </h4>
-                    <img src="{{ asset('assets/images/image-02.png') }}" alt="" class="img-fix">
+                        <a href="{{ route('knowledge.info') }}"><img src="{{ asset('assets/images/image-02.png') }}" alt="" class="img-fix"></a>
                     <div class="row mt-2">
                         <div class="col-md-12">
                         <p class="cyber-know-text">

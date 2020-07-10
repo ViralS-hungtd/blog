@@ -4,9 +4,9 @@
     <div class="container cyber-container slide-top">
         <div class="cyber-blog my-5 row">
             <div class="col-md-8">
-                <h3 class="cyber-blog__blog-title behind-cyan text-center">
+                <h1 class="cyber-blog__blog-title behind-cyan text-center">
                     {{ $blog->title }}
-                </h3>
+                </h1>
                 <div class="cyber-blog__author-info">
                     <p class="mr-5">{{ $blog->author }}</p>
                     <p>{{ date('d-m-Y', strtotime($blog->date)) }}</p>

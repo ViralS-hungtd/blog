@@ -31,7 +31,7 @@
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-3 col-form-label">Nghề nghiệp :</label>
                                     <div class="col-sm-7">
-                                        <input type="text" name="job_customer" class="form-control"  placeholder="ghề nghiệp">
+                                        <input type="text" name="job_customer" class="form-control"  placeholder="Nghề nghiệp">
                                         <small style="color: red" class="validate validate_job_customer"></small>
                                     </div>
                                 </div>

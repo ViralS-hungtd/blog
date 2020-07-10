@@ -1,4 +1,4 @@
-@extends('front.app')
+    @extends('front.app')
 
 @section('content')
     <div class="cyber-container-fluid cyber-hero__background mb-5">
@@ -93,7 +93,7 @@
                         số, chúng ta cần biết những gì để bảo vệ các em khỏi các thông tin
                         độc hại và giúp các em an toàn khám phá mạng Internet?
                     </p>
-                    <button class="btn btn-secondary d-block d-sm-inline m-auto">TÌM HIỂU THÊM</button>
+                    <a href="{{ route('knowledge') }}" class="btn btn-secondary d-block d-sm-inline m-auto">TÌM HIỂU THÊM</a>
                 </div>
             </div>
         </div>
@@ -107,8 +107,8 @@
                         <br/>trước năm 10 tuổi</p>
                 </div>
                 <div class="col-md-4 cyber-number__item">
-                    <span><span class="value">90</span>%</span>
-                    <p>Nạn nhân của các vụ mua bán<br/>người là phụ nữ & trẻ em</p>
+                    <span><span class="value">706</span>.435</span>
+                    <p>vụ báo cáo về hình ảnh<br/>xâm hại tình dục trẻ em trên mạng<br/>tại Việt Nam trong năm 2018</p>
                 </div>
                 <div class="col-md-4 cyber-number__item">
                     <span><span class="value">21</span>%</span>
@@ -139,7 +139,7 @@
                             Bạn đã và đang làm gì để bảo vệ con trên không gian mạng?<br/>
                             Hãy cùng CyberKid tìm hiểu về những giải pháp giúp con vui chơi an toàn trên không gian mạng.
                         </p>
-                        <button class="float-left btn btn-primary d-block d-sm-inline m-auto">TÌM HIỂU THÊM</button>
+                        <a href="{{route('blog')}}" class="float-left btn btn-primary d-block d-sm-inline m-auto">TÌM HIỂU THÊM</a>
                     </div>
                     <div class="col-4">
                         <img class="image-question" src="{{ asset('/assets/images/question.png') }}" alt="">
