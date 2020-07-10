@@ -19,7 +19,7 @@ class SocialController extends Controller
         $getInfo = Socialite::driver($provider)->user();
         $user = $this->createUser($getInfo,$provider);
         auth()->login($user);
-        $blogId = Cookie::get('blog_id') ?? Category::orderBy('id', 'DESC')->first()->id;
+        $blogId = Cookie::get('blog_id') ?? Blog::orderBy('id', 'DESC')->first()->id;
         Cookie::queue('blog_id', $blogId, 60);
         $blog = Blog::find($blogId);
         $relatedBlogs = Blog::where('category_id', $blog->category_id)
