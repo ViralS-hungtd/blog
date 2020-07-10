@@ -122,4 +122,11 @@ class BlogController extends Controller
 
         return view('front.total', compact('result', 'total'));
     }
+
+    public function detailQuiz()
+    {
+        $questions = Question::all();
+
+        return view('front.quiz_detail', compact('questions'));
+    }
 }
