@@ -7,9 +7,7 @@
           <div class="col-12">
             <h3 class="cyber-course__title behind-cyan text-center">
               <span class="mb-3">Khoá học 3D Design</span>
-              <span class="background d-none d-lg-inline">KIẾN TẠO THẾ GIỚI TRONG TAY EM</span>
-              <span class="background d-inline d-lg-none">KIẾN TẠO THẾ GIỚI</span>
-              <span class="background d-inline d-lg-none"> TRONG TAY EM</span>
+              <span class="background">KIẾN TẠO THẾ GIỚI TRONG TAY EM</span>
             </h3>
           </div>
         </div>
@@ -44,7 +42,7 @@
       </div>
     </div>
     <div class="text-center">
-      <button class="btn btn-primary">ĐĂNG KÝ NGAY</button>
+      <a href="https://info202072.typeform.com/to/ixYKGYIX" class="btn btn-primary">ĐĂNG KÝ NGAY</a>
     </div>
     <div class="cyber-container-fluid cyber-teacher__background my-5">
       <div class="container cyber-container">
@@ -300,8 +298,20 @@
           </div>
         </div>
         <div class="col-12 text-center my-5">
-          <button class="btn btn-primary">ĐĂNG KÝ NGAY</button>
+          <a href="https://info202072.typeform.com/to/ixYKGYIX" class="btn btn-primary">ĐĂNG KÝ NGAY</a>
         </div>
       </div>
     </div>
+    <style>
+        @media (max-width: 575.98px) {
+            .cyber-course__title {
+                padding: 120px 0;
+                font-size: 27px;
+            }
+
+            .cyber-course__title .background {
+                font-size: 21px;
+            }
+        }
+    </style>
 @endsection

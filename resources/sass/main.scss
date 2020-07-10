@@ -679,27 +679,20 @@ ul {
     }
   }
 
-  //p {
-  //  line-height: 1.5;
-  //  font-size: 18px;
-  //  font-weight: 600;
-  //  padding: 40px 0;
-  //  margin-bottom: 0;
-  //  background-image: url(/assets/images/question.png);
-  //  background-position: 80% 100%;
-  //  background-size: auto 100%;
-  //  background-repeat: no-repeat;
-  //
-  //  @media (max-width: 1360px) {
-  //    font-size: 16px;
-  //  }
-  //
-  //  @media (max-width: 575.98px) {
-  //    margin-bottom: 12px;
-  //    background-position: top right;
-  //    background-size: auto 100px;
-  //  }
-  //}
+  p {
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+
+    @media (max-width: 1360px) {
+      font-size: 14px;
+    }
+    @media (max-width: 575.98px) {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+  }
 }
 
 .cyber-footer {

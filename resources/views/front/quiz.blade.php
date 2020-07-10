@@ -13,7 +13,7 @@
                     <span> tới đâu?</span>
                 </h3>
             </div>
-            <div class="col-12 text-center">
+            <div class="col-12 text-center font-size-text">
                 <img src="{{ asset('assets/images/family.png') }}" alt="" class="img-fluid mb-4">
                 <p>Hãy cùng CyberKid làm bài trắc nghiệm dưới đây để tìm hiểu xem<br/>
                     bạn đã thực sự hiểu con trên không gian mạng chưa nhé!
@@ -107,6 +107,9 @@
             }
             img.arrow {
                 width: 50px;
+            }
+            .font-size-text {
+                font-size: 12px;
             }
         }
     </style>

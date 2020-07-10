@@ -126,22 +126,45 @@
                     <span>ĐỂ BẢO VỆ CON EM TRÊN KHÔNG GIAN MẠNG</span>
                 </h3>
                 <h3 class="cyber-title d-block d-md-none cyber-question__title behind-yellow">
-                    <span>BẠN ĐÃ CÓ NHỮNG BIỆN</span>
+                    <span>BẠN ĐÃ CÓ NHỮNG BIỆN PHÁP GÌ</span>
                     <br/>
-                    <span> PHÁP GÌ ĐỂ BẢO VỆ</span>
-                    <br/>
-                    <span> CON EM TRÊN</span>
-                    <br/>
-                    <span> KHÔNG GIAN MẠNG</span>
+                    <span>ĐỂ BẢO VỆ CON EM TRÊN KHÔNG GIAN MẠNG</span>
                 </h3>
-                <p>Ngắt kết nối mạng?<br/>
-                    Cấm đoán con em sử dụng mạng internet?<br/>
-                    Sử dụng phần mềm theo dõi hoạt động mạng của con?<br/>
-                    Bạn đã và đang làm gì để bảo vệ con trên không gian mạng?<br/>
-                    Hãy cùng CyberKid tìm hiểu về những giải pháp giúp con vui chơi an toàn trên không gian mạng.
-                </p>
-                <button class="btn btn-primary d-block d-sm-inline m-auto">TÌM HIỂU THÊM</button>
+                <div class="row mt-3 mb-3">
+                    <div class="col-8 amai" >
+                        <p class="mb-sm-3 mb-md-5">
+                        Ngắt kết nối mạng?<br/>
+                            Cấm đoán con em sử dụng mạng internet?<br/>
+                            Sử dụng phần mềm theo dõi hoạt động mạng của con?<br/>
+                            Bạn đã và đang làm gì để bảo vệ con trên không gian mạng?<br/>
+                            Hãy cùng CyberKid tìm hiểu về những giải pháp giúp con vui chơi an toàn trên không gian mạng.
+                        </p>
+                        <button class="float-left btn btn-primary d-block d-sm-inline m-auto">TÌM HIỂU THÊM</button>
+                    </div>
+                    <div class="col-4">
+                        <img class="image-question" src="{{ asset('/assets/images/question.png') }}" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <style>
+        .image-question {
+            width: 200px;
+        }
+        @media (max-width: 500.98px) {
+            .image-question {
+                width: 100px;
+            }
+            .amai {
+                font-size: 9px;
+            }
+            .cyber-question__title {
+                font-size: 18px;
+            }
+            .amai button {
+                font-size: 15px;
+            }
+        }
+    </style>
 @endsection
