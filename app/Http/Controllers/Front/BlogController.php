@@ -18,16 +18,12 @@ class BlogController extends Controller
 {
     const BLOG = 0;
     const BAI_VIET = 1;
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
-        $blogs = collect();
-        if ($categories->first()) {
-            $blogs = Blog::where('category_id', $categories->first()->id)->where('status', true)->get();
-        }
+        $blogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->get();
         $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
 
-        return view('front.blog', compact('blogs', 'categories', 'hotBlogs'));
+        return view('front.blog', compact('blogs', 'hotBlogs'));
     }
 
     public function category($id)

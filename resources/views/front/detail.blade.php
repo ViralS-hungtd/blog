@@ -79,12 +79,10 @@
                     <span>CHUYÊN MỤC</span>
                 </h3>
                 <ul class="cyber-blog__list list-group">
-                    @foreach($categories as $category)
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('knowledge.power') }}">Quyền trẻ em trên không gian mạng</a>
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('knowledge.info') }}">Hiểu về không gian mạng</a>
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog') }}">Blog</a>
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('event') }}">Tin tức & sự kiện</a>
-                    @endforeach
+                    <a class="cyber-blog__list-item list-group-item" href="{{ route('knowledge.power') }}">Quyền trẻ em trên không gian mạng</a>
+                    <a class="cyber-blog__list-item list-group-item" href="{{ route('knowledge.info') }}">Hiểu về không gian mạng</a>
+                    <a class="cyber-blog__list-item list-group-item" href="{{ route('blog') }}">Blog</a>
+                    <a class="cyber-blog__list-item list-group-item" href="{{ route('event') }}">Tin tức & sự kiện</a>
                 </ul>
                 <h3 class="cyber-title cyber-about__title behind-cyan text-center">
                     <span>BÀI VIẾT MỚI</span>
