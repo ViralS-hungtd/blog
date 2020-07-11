@@ -21,7 +21,7 @@ class SocialController extends Controller
         auth()->login($user);
         $blogId = Cookie::get('blog_id') ?? Blog::orderBy('id', 'DESC')->first()->id;
 
-        return $this->redirect()->route('blog.show', $blogId);
+        return redirect()->route('blog.show', $blogId);
     }
     function createUser($getInfo,$provider){
         $user = User::where('provider_id', $getInfo->id)->first();
