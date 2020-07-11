@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Database\Eloquent\Builder;
 
 class BlogController extends Controller
 {
@@ -20,7 +21,22 @@ class BlogController extends Controller
     const BAI_VIET = 1;
     public function index(Request $request)
     {
-        $blogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->get();
+        if($request->search) {
+            $search = $request->search;
+            $blogs =  Blog::where('status', true)
+                ->where('type', self::BLOG)
+                ->where(function (Builder $query) use ($search) {
+                    return $query->whereHas('tags', function (Builder $query) use ($search) {
+                        $query->where('name', 'LIKE', "%$search%");
+                    })->orwhere('title', 'LIKE', "%$search%")
+                    ->orWhere('content', 'LIKE', "%$search%")
+                    ->orWhere('short_description', 'LIKE', "%$search%");
+                })
+                ->get();
+        } else {
+            $blogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->get();
+        }
+
         $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
 
         return view('front.blog', compact('blogs', 'hotBlogs'));
