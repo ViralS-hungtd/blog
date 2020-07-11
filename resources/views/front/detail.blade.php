@@ -46,6 +46,15 @@
                                         <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>
                                     @endif
                                 </div>
+                                <div class="cyber-blog__comment-content cmt-zone">
+                                    @foreach($comments as $comment)
+                                    <div class="cyber-blog__comment-item">
+                                        <img style="width: auto; height: 30px" class="cyber-blog__comment-avatar" src="{{"https://graph.facebook.com/".$comment->user->provider_id."/picture" }}" alt="">
+                                        <p><b>{{ $comment->user->name }}</b></p>
+                                        <p>{{ $comment->content }}</p>
+                                    </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,10 +118,11 @@
                     url: '{{ route('save.comment') }}',
                     data: {
                         'des': val,
-                        'blog_id' : {{ $blog->id }}
+                        'blog_id' : "{{ $blog->id }}"
                     },
                     dataType: 'BOOLEAN',
                     complete : (response) => {
+                        $('.cmt-zone').prepend(response);
                         $('.cyber-blog__comment-textarea').val('');
                         $('.validate-comment').empty();
                         toastr.success('Bình luận của bạn đã được ghi lại!');

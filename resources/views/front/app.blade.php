@@ -51,7 +51,7 @@
                             <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
                         </li>
                     </ul>
-                    <form method="GET" action="{{'blog'}}" class="cyber-header__form d-flex d-lg-block">
+                    <form method="GET" action="{{route('blog')}}" class="cyber-header__form d-flex d-lg-block">
                         <input name="search" class="form-control cyber-header__search-input" placeholder="Tìm kiếm...">
                         <button class="btn btn-search-mobile d-block d-lg-none ml-2" type="submit">Tìm kiếm</button>
                         <button class="btn btn-search cyber-header__search-btn">

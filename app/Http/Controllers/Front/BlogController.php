@@ -47,8 +47,9 @@ class BlogController extends Controller
                 ->get();
             $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
             $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
+            $comments = Comment::with('user')->where('blog_id', $id)->orderBy('id', 'DESC')->get();
 
-            return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
+            return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs', 'comments'));
         } catch (\Exception $exception) {
             throw $exception;
         }
@@ -93,13 +94,16 @@ class BlogController extends Controller
 
     public function saveComment(Request $request)
     {
-        Comment::create([
+        $comment = Comment::create([
             'content' => $request->des,
             'blog_id' => $request->blog_id,
             'user_id' => Auth::user()->id
         ]);
-
-        return true;
+        return  '<div class="cyber-blog__comment-item">
+                                        <img style="width: auto; height: 30px" class="cyber-blog__comment-avatar" src="https://graph.facebook.com/"'.$comment->user->provider_id.'"/picture" }}" alt="">
+                                        <p><b>'.$comment->user->name.'</b></p>
+                                        <p>'.$comment->content.'</p>
+                                    </div>';
     }
 
     public function quiz()
