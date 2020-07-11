@@ -143,7 +143,7 @@ class BlogCrudController extends CrudController
             ]);
             $this->crud->addField([
                 'label' => 'Tags',
-                'type' => 'select2_multiple',
+                'type' => 'relationship',
                 'name' => 'tags', // the method that defines the relationship in your Model
                 'entity' => 'tags', // the method that defines the relationship in your Model
                 'attribute' => 'name', // foreign key attribute that is shown to user
