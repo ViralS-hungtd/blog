@@ -5,14 +5,14 @@
         <div class="cyber-blog mt-5 row">
             <div class="col-md-8">
                 <div class="row">
-                    <h4 class="cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto;">
+                    <h1 class="cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto;">
                         <span>Hiểu về không gian mạng</span>
-                    </h4>
+                    </h1>
                     <div class="col-sm-12">
                         <img src="{{ asset('assets/images/image-02.png') }}" alt="" class="img-fix">
-                        <h4 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
+                        <h2 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
                             <span class="text-small">Mạng Internet là gì ?</span>
-                        </h4>
+                        </h2>
                         <p class="cyber-know-text">
                         Có thể khẳng định Internet là một trong số ít những thứ con người tạo ra mà lại
                         không thực sự hiểu về bản chất của nó.
@@ -29,9 +29,9 @@
                     </p>
                     </div>
                     <div class="col-sm-12">
-                        <h4 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
+                        <h2 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
                             <span class="text-small">06 đặc tính của Internet</span>
-                        </h4>
+                        </h2>
                         <div class="row">
                             <div class="col-sm-6 row">
                                 <div class="col-sm-4">
@@ -112,26 +112,26 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
+                        <h2 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
                             <span class="text-small">06 rủi ro trên không gian mạng</span>
-                        </h4>
+                        </h2>
                         <div class="row knowleadge-box">
                             <div class="col-sm-6">
                                 <img src="{{ asset('assets/images/kgm-08.png') }}" alt="" class="img-fix">
                             </div>
                             <div class="col-sm-6">
-                                <p class="cyber-title behind-yellow">
+                                <h3 class="cyber-title behind-yellow">
                                     <span>NGUY CƠ BỊ ĐÁNH CẮP THÔNG TIN</span>
-                                </p>
+                                </h3>
                                 <p class="text-15px">
                                     Có thể bạn không để ý, nhưng chúng ta lưu giữ rất nhiều những thông tin
                                     trên mạng Internet. Từ mật khẩu cá nhân, các hình ảnh đời tư tới số tài
                                     khoản ngân hàng khi bạn thanh toán các mặt hàng online - và tất cả những
                                     thông tin đấy đều có nguy cơ bị đánh cắp
                                 </p>
-                                <p class="cyber-title">
+                                <h4 class="cyber-title">
                                     <span>VẬY LÀM SAO ĐỂ XỬ LÝ?</span>
-                                </p>
+                                </h4>
                                 <p class="text-15px text-cyber-bold"><b>Cài đặt mật khẩu đủ mạnh</b></p>
                                 <p class="text-15px">- Sử dụng mật khẩu khó đoán : Mật khẩu của bạn nên
                                 có ít nhất 6 kí tự - bao gồm cả số, chữ và các kí tự đặc biệt.</p>
@@ -156,17 +156,17 @@
                         </div>
                     <div class="row knowleadge-box">
                         <div class="col-sm-7" style="margin-top: 20px">
-                            <p class="cyber-title behind-yellow">
+                            <h3 class="cyber-title behind-yellow">
                                 <span>NGUY CƠ BỊ LỪA ĐẢO</span>
-                            </p>
+                            </h3>
                             <p class="text-15px">Vì chúng ta không thể biết được người đang nói chuyện với mình trên
                                 mạng Internet thực sự là ai, không chỉ có trẻ em mà người lớn chúng ta
                                 cũng có thể trở thành nạn nhân của những vụ lừa đảo trên không gian
                                 mạng. bị mất thông tin cá nhân, bị lừa mua hàng giả, lừa đảo tình cảm,
                                 v...v..</p>
-                            <p class="cyber-title">
+                            <h4 class="cyber-title">
                                 <span>VẬY LÀM SAO ĐỂ XỬ LÝ?</span>
-                            </p>
+                            </h4>
                             <p class="text-15px">• Luôn nhớ rằng thông tin của chúng ta là rất quan trọng và không thể cho
                                 đi dễ dàng</p>
                             <p class="text-15px">• Luôn kiểm tra website cũng như thông tin, uy tín của nhà cung cấp trước
@@ -185,17 +185,17 @@
                             <img src="{{ asset('assets/images/kgm-10.png') }}" alt="" class="img-fix">
                         </div>
                         <div class="col-sm-7" style="margin-top: 20px">
-                            <p class="cyber-title behind-yellow">
+                            <h3 class="cyber-title behind-yellow">
                                 <span>NGUY CƠ NGHIỆN TRÒ CHƠI ĐIỆN TỬ</span>
-                            </p>
+                            </h3>
                             <p class="text-15px">Các game online không xấu, nhưng chỉ khi chúng ta biết lựa chọn trò
                                 chơi phù hợp và chơi có chừng mực. Bản thân các game online có thể
                                 ẩn chứa một số rủi ro như chứa virus hay những thông tin quảng cáo
                                 không lành mạnh, bị xâm hại quyền riêng tư hoặc bị tiếp cận bởi kẻ
                                 xấu, hay gây ra những xích mích, bạo lực không đáng có.</p>
-                            <p class="cyber-title">
+                            <h4 class="cyber-title">
                                 <span>VẬY LÀM SAO ĐỂ XỬ LÝ?</span>
-                            </p>
+                            </h4>
                             <p class="text-15px">• Xác định những trò chơi phù hợp với bản thân, bạn đừng ngại hỏi ý
                                 kiến của người thân, bố mẹ hay anh chị lớn hơn để có được sự tư vấn
                                 cần thiết nhé!</p>
@@ -208,18 +208,18 @@
                     </div>
                     <div class="row knowleadge-box">
                         <div class="col-sm-7" style="margin-top: auto; margin-bottom:auto;">
-                            <p class="cyber-title behind-yellow">
+                            <h3 class="cyber-title behind-yellow">
                                 <span>NGUY CƠ TIẾP CẬN VÀ CHIA SẺ</span>
-                            </p>
-                            <p class="cyber-title behind-yellow">
+                            </h3>
+                            <h3 class="cyber-title behind-yellow">
                                 <span>THÔNG TIN SAI LỆCH</span>
-                            </p>
+                            </h3>
                             <p class="text-15px">Cùng với sự can thiệp của chính quyền, rất nhiều các tin giả, các tin sai
                                 lệch đã không còn tồn tại trên mạng xã hội; tuy nhiên điều đó cũng
                                 không đồng nghĩa với việc mọi thông tin bạn thấy đều chính xác.</p>
-                            <p class="cyber-title">
+                            <h4 class="cyber-title">
                                 <span>VẬY LÀM SAO ĐỂ XỬ LÝ?</span>
-                            </p>
+                            </h4>
                             <p class="text-15px">• Đừng vội tin tưởng những tin tức không xác thực hoặc những tin tức
                                 từ nguồn tin không chính thống.</p>
                             <p class="text-15px">• Hãy luôn kiểm tra xem ai là tác giả của tin được chia sẻ, đường dẫn
@@ -240,12 +240,12 @@
                             <img src="{{ asset('assets/images/kgm-12.png') }}" alt="" class="img-fix">
                         </div>
                         <div class="col-sm-7" style="margin-top: auto; margin-bottom:auto;">
-                        <p class="cyber-title behind-yellow text-cyber-right">
+                        <h3 class="cyber-title behind-yellow text-cyber-right">
                             <span>NGUY CƠ XEM CÁC ẤN PHẨM</span>
-                        </p>
-                        <p class="cyber-title behind-yellow text-cyber-right">
+                        </h3>
+                        <h3 class="cyber-title behind-yellow text-cyber-right">
                             <span>KHÔNG PHÙ HỢP</span>
-                        </p>
+                        </h3>
                         <p class="text-15px">Một số website giới hạn độ tuổi sẽ chỉ cho phép bạn truy cập khi
                             chứng minh mình đã hơn 18 tuổi.
                         </p>
@@ -255,9 +255,9 @@
                             có tính bạo lực, lăng mạ người khác, hoặc ảnh hưởng xấu đến tâm lý;
                             các nội dung đánh bạc, cá cược.
                         </p>
-                        <p class="cyber-title">
+                        <h4 class="cyber-title">
                             <span>VẬY LÀM SAO ĐỂ XỬ LÝ?</span>
-                        </p>
+                        </h4>
                         <p class="text-15px">• Chặn những người chia sẻ hoặc những thông tin không phù hợp.</p>
                         <p class="text-15px">
                             • Báo cáo những nội dung không phù hợp với những nhà cung cấp

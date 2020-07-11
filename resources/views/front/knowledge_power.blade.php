@@ -6,30 +6,30 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
-                    <h4 class="d-none d-md-block cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto; font-size: 35px">
+                    <h1 class="d-none d-md-block cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto; font-size: 35px">
                         <span>Quyền trẻ em trên không gian mạng</span>
-                    </h4>
-                    <h4 class="d-block d-md-none cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto; font-size: 35px">
+                    </h1>
+                    <h1 class="d-block d-md-none cyber-title behind-cyan text-center text-md-center" style="margin-left: auto; margin-right: auto; font-size: 35px">
                         <span>Quyền trẻ em trên</span>
                         <br>
                         <span> không gian mạng</span>
                         <br/>
                         <span> gian mạng</span>
-                    </h4>
+                    </h1>
                     <img src="{{ asset('assets/images/image-01.png') }}" alt="" class="img-fix">
                     <div class="text-15px">
-                        <p>
+                        <h2>
                             <b>1. Được bảo vệ, tiếp cận thông tin và giữ bí mật cá nhân</b>
-                        </p>
+                        </h2>
                         <p>
                             Trẻ em có quyền được bảo vệ, tiếp cận thông tin, tham gia hoạt động xã hội,
                             vui chơi, giải trí, giữ bí mật cá nhân, đời sống riêng tư và các quyền khác khi
                             tham gia trên không gian mạng.
                         </p>
-                        <p>
+                        <h2>
                             <b>2. Doanh nghiệp có trách nhiệm kiểm soát nội dung, ngăn chặn việc chia sẻ
                                 và xoá bỏ nội dung xâm phạm quyền trẻ em</b>
-                        </p>
+                        </h2>
                         <p>
                             Chủ quản hệ thống thông tin, doanh nghiệp cung cấp dịch vụ trên mạng
                             viễn thông, internet, các dịch vụ gia tăng trên không gian mạng có trách
@@ -38,34 +38,34 @@
                             phạm đến trẻ em, quyền trẻ em; ngăn chặn việc chia sẻ và xóa bỏ thông tin
                             có nội dung gây nguy hại cho trẻ em, xâm phạm đến trẻ em, quyền trẻ em.
                         </p>
-                        <p>
+                        <h2>
                             <b>3. Mọi cá nhân, tổ chức trên không gian mạng có trách nhiệm trong bảo
                                 đảm quyền của trẻ em trên không gian mạng</b>
-                        </p>
+                        </h2>
                         <p>
                             Cơ quan, tổ chức, cá nhân tham gia hoạt động trên không gian mạng có
                             trách nhiệm phối hợp với cơ quan có thẩm quyền trong bảo đảm quyền của
                             trẻ em trên không gian mạng, ngăn chặn thông tin có nội dung gây nguy hại
                             cho trẻ em theo quy định của luật này và pháp luật về trẻ em.
                         </p>
-                        <p>
+                        <h2>
                             <b>
                                 4. Cơ quan, tổ chức, cha mẹ, giáo viên, người chăm sóc trẻ em và cá nhân
                                 khác liên quan có trách nhiệm bảo đảm quyền của trẻ em khi tham gia
                                 không gian mạng
                             </b>
-                        </p>
+                        </h2>
                         <p>
                             Cơ quan, tổ chức, cha mẹ, giáo viên, người chăm sóc trẻ em và cá nhân
                             khác liên quan có trách nhiệm bảo đảm quyền của trẻ em, bảo vệ trẻ em
                             khi tham gia không gian mạng theo quy định của pháp luật về trẻ em.
                         </p>
-                        <p>
+                        <h2>
                             <b>
                                 5. Cơ quan chức năng có trách nhiệm phòng ngừa, phát hiện, ngăn chặn, xử
                                 lý nghiêm hành vi sử dụng không gian mạng xâm phạm quyền trẻ em.
                             </b>
-                        </p>
+                        </h2>
                         <p>
                             Lực lượng chuyên trách bảo vệ an ninh mạng và các cơ quan chức năng có
                             trách nhiệm áp dụng biện pháp để phòng ngừa, phát hiện, ngăn chặn, xử lý
@@ -109,6 +109,10 @@
         .text-15px {
             font-size: 15px;
             margin-bottom: 0px;
+        }
+
+        .text-15px h2 {
+            font-size: 20px;
         }
     </style>
 @endsection

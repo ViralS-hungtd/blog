@@ -20,17 +20,8 @@ class SocialController extends Controller
         $user = $this->createUser($getInfo,$provider);
         auth()->login($user);
         $blogId = Cookie::get('blog_id') ?? Blog::orderBy('id', 'DESC')->first()->id;
-        Cookie::queue('blog_id', $blogId, 60);
-        $blog = Blog::find($blogId);
-        $relatedBlogs = Blog::where('category_id', $blog->category_id)
-            ->where('status', true)
-            ->orderBy('id', 'DESC')
-            ->take(4)
-            ->get();
-        $categories = Category::where('type',0)->orderBy('id', 'DESC')->get();
-        $hotBlogs = Blog::where('status', true)->where('type', 0)->orderBy('id', 'DESC')->take(8)->get();
 
-        return view('front.detail', compact('blog', 'relatedBlogs', 'categories', 'hotBlogs'));
+        return $this->redirect()->route('blog.show', $blogId);
     }
     function createUser($getInfo,$provider){
         $user = User::where('provider_id', $getInfo->id)->first();
