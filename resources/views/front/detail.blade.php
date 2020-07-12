@@ -114,7 +114,7 @@
 @endsection
 @section('scripts')
     <script>
-        $(document).on("click", ".comment-btn",function() {
+        $(document).on("click", ".comment-btn",function(e) {
             e.preventDefault();
             let val = $('.cyber-blog__comment-textarea').val();
             if(!val) {
