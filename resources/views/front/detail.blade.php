@@ -126,11 +126,11 @@
                         'des': val,
                         'blog_id' : "{{ $blog->id }}"
                     },
+                    dataType: 'html',
                     complete : (response) => {
-                        $('.cmt-zone').prepend(response);
+                        $('.cmt-zone').prepend(response.responseText);
                         $('.cyber-blog__comment-textarea').val('');
                         $('.validate-comment').empty();
-                        toastr.success('Bình luận của bạn đã được ghi lại!');
                     }
                 });
             }
