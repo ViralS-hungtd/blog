@@ -22,56 +22,90 @@
         </div>
     </div>
     <div class="container cyber-container mb-5">
-        <div class="cyber-news row">
-            @foreach($firstBlogs as $firstBlog)
-                <div class="col-md-6 col-lg-4 mt-4">
-                    <a class="card" href="{{ route('blog.show', $firstBlog->id) }}">
-                        <img src="{{ asset($firstBlog->image) }}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <p class="card-text">{{ $firstBlog->title }}</p>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-        <div class="cyber-news row">
-            @foreach($otherBlogs as $otherBlog)
-                <div class="col-md-6 col-lg-4 mt-4">
-                    <a class="card flex-row" href="{{ route('blog.show', $otherBlog->id) }}">
-                        <img src="{{ asset($otherBlog->image) }}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <p class="card-text">{{ $otherBlog->title }}</p>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-        <div class="cyber-news row">
+        <div class="cyber-news row mb-5">
+            <div class="col-12">
+              <h2 class="cyber-title behind-pink text-center">
+                <span>Cập nhật mới nhất</span>
+              </h2>
+            </div>
             <div class="col-md-6 col-lg-4 mt-4">
+                @foreach($news as $key => $new)
+                <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $new->id) }}">
+                    <img src="{{ asset($new->image) }}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <p class="card-text">{{ $firstBlog->title }}</p>
+                    </div>
+                </a>
+                @endforeach
+                @if(count($news) < 3)
+                  @for($i = 0; $i < 3 - count($news); $i++)
+                    <a class="card {{$i == 0 &&  count($news) == 0? '' : 'flex-row' }}" href="detail.html">
+                        <img src="/assets/images/family.png" class="card-img-top" alt="">
+                        <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </a>
+                  @endfor
+                @endif
                 <span class="cyber-news__more">
-                    TIN TỨC & SỰ KIỆN
+                    TIN TỨC &amp; SỰ KIỆN
                     <a href="{{ route('event') }}">Xem thêm
-                        <i class="fas fa-long-arrow-alt-right"></i>
+                    <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
                     </a>
                 </span>
             </div>
             <div class="col-md-6 col-lg-4 mt-4">
- <span class="cyber-news__more">
-            HIỂU VỀ KHÔNG GIAN MẠNG
-            <a href="{{ route('knowledge.info') }}">Xem thêm
-              <i class="fas fa-long-arrow-alt-right"></i>
-            </a>
-          </span>
+                @foreach($blogs as $key => $blog)
+                <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $blog->id) }}">
+                    <img src="{{ asset($blog->image) }}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <p class="card-text">{{ $blog->title }}</p>
+                    </div>
+                </a>
+                @endforeach
+                @if(count($blogs) < 3)
+                  @for($i = 0; $i < 3 - count($blogs); $i++)
+                    <a class="card {{$i == 0 &&  count($blogs) == 0? '' : 'flex-row' }}" href="detail.html">
+                        <img src="/assets/images/family.png" class="card-img-top" alt="">
+                        <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </a>
+                  @endfor
+                @endif
+              <span class="cyber-news__more">
+                Blog
+                <a href="{{ route('blog') }}">Xem thêm
+                  <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                </a>
+              </span>
             </div>
             <div class="col-md-6 col-lg-4 mt-4">
-                 <span class="cyber-news__more">
-            QUYỀN CỦA TRẺ EM
-            <br/>
-            TRÊN KHÔNG GIAN MẠNG
-            <a href="{{ route('knowledge.power') }}">Xem thêm
-              <i class="fas fa-long-arrow-alt-right"></i>
-            </a>
-          </span>
+              <a class="card" href="{{ route('knowledge.info') }}">
+                <img src="{{ asset('assets/images/image-02.png') }}" class="card-img-top" alt="">
+                <div class="card-body">
+                  <p class="card-text">Hiểu về không gian mạng.</p>
+                </div>
+              </a>
+              <a class="card flex-row" href="{{ route('knowledge.power') }}">
+                <img src="{{ asset('assets/images/image-01.png') }}" class="card-img-top" alt="">
+                <div class="card-body">
+                  <p class="card-text">Quyền trẻ em trên không gian mạng.</p>
+                </div>
+              </a>
+              {{-- <a class="card flex-row" href="{{ route('knowledge.info') }}">
+                <img src="{{ asset('assets/images/image-02.png') }}" class="card-img-top" alt="">
+                <div class="card-body">
+                  <p class="card-text">Hiểu về không gian mạng.</p>
+                </div>
+              </a> --}}
+              <span class="cyber-news__more">
+                Hiểu về Không gian mạng
+              <a href="{{ route('knowledge') }}">Xem thêm
+                  <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                </a>
+              </span>
+            </div>
             </div>
         </div>
     </div>

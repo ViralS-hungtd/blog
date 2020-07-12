@@ -6,14 +6,18 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                    <h4 class="cyber-title d-none d-md-block behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
-                        <span>Quyền trẻ em trên không gian mạng</span>
-                    </h4>
-                    <h4 class="cyber-title d-block d-md-none behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
-                        <span>Quyền trẻ em trên không</span>
-                        <br>
-                        <span> gian mạng</span>
-                    </h4>
+                        <a href="{{ route('knowledge.power') }}">
+                            <h4 class="cyber-title d-none d-md-block behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
+                                <span>Quyền trẻ em trên không gian mạng</span>
+                            </h4>
+                        </a>
+                        <a href="{{ route('knowledge.power') }}">
+                            <h4 class="cyber-title d-block d-md-none behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
+                                <span>Quyền trẻ em trên không</span>
+                                <br>
+                                <span> gian mạng</span>
+                            </h4>
+                        </a>
                         <a href="{{ route('knowledge.power') }}"><img src="{{ asset('assets/images/image-01.png') }}" alt="" class="img-fix"></a>
                         <div class="row mt-2">
                             <div class="col-md-12">
@@ -35,9 +39,11 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                    <h4 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
-                        <span>Hiểu về không gian mạng</span>
-                    </h4>
+                        <a href="{{ route('knowledge.power') }}">
+                            <h4 class="cyber-title behind-cyan text-center" style="margin-left: auto; margin-right: auto;">
+                                <span>Hiểu về không gian mạng</span>
+                            </h4>
+                        </a>
                         <a href="{{ route('knowledge.info') }}"><img src="{{ asset('assets/images/image-02.png') }}" alt="" class="img-fix"></a>
                     <div class="row mt-2">
                         <div class="col-md-12">

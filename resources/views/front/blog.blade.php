@@ -8,10 +8,14 @@
                     @foreach($blogs as $blog)
                         <div class="col-md-6">
                             <div class="cyber-blog__item" data-scroll>
-                                <img src="{{ asset($blog->image) }}" alt="" class="img-fluid cyber-blog__img">
-                                <h4 class="cyber-blog__title">
-                                    {{ $blog->title }}
-                                </h4>
+                                <a class="cyber-blog__more" href="{{ route('blog.show', $blog->id) }}">
+                                    <img src="{{ asset($blog->image) }}" alt="" class="img-fluid cyber-blog__img">
+                                </a>
+                                <a href="{{ route('blog.show', $blog->id) }}">
+                                    <h4 class="cyber-blog__title">
+                                        {{ $blog->title }}
+                                    </h4>
+                                </a>
                                 <p class="cyber-blog__text">
                                     {{ $blog->short_description }}
                                 </p>

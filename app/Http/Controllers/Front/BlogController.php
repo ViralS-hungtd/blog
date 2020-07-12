@@ -102,10 +102,10 @@ class BlogController extends Controller
 
     public function main()
     {
-        $firstBlogs = Blog::where('status', true)->orderBy('id', 'DESC')->take(3)->get();
-        $otherBlogs = Blog::where('status', true)->orderBy('id', 'DESC')->skip(3)->take(6)->get();
+        $blogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(3)->get();
+        $news = Blog::where('status', true)->where('type', self::BAI_VIET)->orderBy('id', 'DESC')->take(3)->get();
 
-        return view('front.index', compact('firstBlogs', 'otherBlogs'));
+        return view('front.index', compact('blogs', 'news'));
     }
 
     public function saveComment(Request $request)

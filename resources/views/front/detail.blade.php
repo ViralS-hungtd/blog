@@ -14,9 +14,9 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="d-flex flex-lg-column cyber-blog__social">
-                            <a href="#" class="far fa-comment-dots mb-lg-2 mr-2 mr-lg-0"></a>
-                            <a href="#" class="fas fa-home mb-lg-2 mr-2 mr-lg-0"></a>
-                            <a href="#" class="fab fa-facebook mb-lg-2 mr-2 mr-lg-0"></a>
+                        <a href="{{ route('contact') }}" class="far fa-comment-dots mb-lg-2 mr-2 mr-lg-0"></a>
+                            <a href="{{ route('index') }}" class="fas fa-home mb-lg-2 mr-2 mr-lg-0"></a>
+                            <a href="https://www.facebook.com/cyberkid.vietnam/" target="__blank" class="fab fa-facebook mb-lg-2 mr-2 mr-lg-0"></a>
                         </div>
                     </div>
                     <div class="col-lg-10">
@@ -46,12 +46,14 @@
                                         <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>
                                     @endif
                                 </div>
-                                <div class="cyber-blog__comment-content cmt-zone">
+                                
+                                <div class="cmt-zone">
                                     @foreach($comments as $comment)
                                     <div class="cyber-blog__comment-item">
-                                        <img style="width: auto; height: 30px" class="cyber-blog__comment-avatar" src="{{"https://graph.facebook.com/".$comment->user->provider_id."/picture" }}" alt="">
-                                        <p><b>{{ $comment->user->name }}</b></p>
-                                        <p>{{ $comment->content }}</p>
+                                        <img class="cyber-blog__comment-avatar" src="{{"https://graph.facebook.com/".$comment->user->provider_id."/picture" }}" alt="">
+                                        <div class="form-group">
+                                            <label class='cyber-blog__content_comment'><b>{{$comment->user->name}}:</b> {{$comment->content}}</label>
+                                        </div>
                                     </div>
                                     @endforeach
                                 </div>
