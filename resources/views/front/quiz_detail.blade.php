@@ -9,17 +9,17 @@
                     <div class="carousel-inner">
                         <form class="quiz-form">
                             @foreach($questions as $key1 => $question)
-                                <div class="carousel-item {{ $key1 == 0 ? 'active' : '' }}" id="{{ $key1 == 9 ? 'final-step' : '' }}">
+                                <div class="carousel-item {{ $key1 == 0 ? 'active' : '' }} step-{{$key1}}" data-step="{{ $key1 }}" id="{{ $key1 == 9 ? 'final-step' :  ''}}">
                                     <h4><b>{{ $question->question}}</b></h4>
                                     @php
                                         $answers = json_decode($question->answer , true);
                                     @endphp
                                     @foreach($answers as $key => $answer)
-                                        <p><input type="radio" name="answer[{{ $key1 }}]" value="{{$key}}" {{ $key == array_key_first($answers) ? 'checked' : '' }}> {{ $answer }}</p>
+                                        <p><input type="radio" name="answer[{{ $key1 }}]" value="{{$key}}"> {{ $answer }}</p>
                                     @endforeach
                                 </div>
                             @endforeach
-                            <div class="carousel-item final-step">
+                            <div class="carousel-item final-step step-10">
                                 <h4><b>Vui lòng để lại thông tin cá nhân của bạn để cập nhật những thông tin mới nhất từ CyberKid</b></h4>
                                 <div class="form-group row mt-3">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên : </label>
@@ -44,7 +44,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-result float-md-right" aria-expanded="true">XEM KẾT QUẢ</button>
                             </div>
-                            <a class="carousel-control-next" id="next-button" href="#carouselExampleControls" role="button" data-slide="next">
+                            <a class="carousel-control-next" id="next-button" role="button" data-slide="next">
                                 <img src="{{ asset('assets/images/arrow.png') }}"  role="button" data-slide="next" class="arrow" >
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
@@ -121,10 +121,17 @@
         });
 
         $(document).on("click", "#next-button",function() {
-            if ($('#final-step').hasClass('active')) {
-               $(this).css('display', 'none');
+            let step = $('.active').data('step');
+            if($(`input[name='answer[${step}]']:checked`).length == 0) {
+                toastr.error('Chọn 1 đáp án !')
             } else {
-                $(this).css('display', 'flex');
+                $(`.step-${step}`).removeClass('active');
+                $(`.step-${step + 1}`).addClass('active');
+                if (step == 9) {
+                    $(this).css('display', 'none');
+                } else {
+                    $(this).css('display', 'flex');
+                }
             }
         });
     </script>
