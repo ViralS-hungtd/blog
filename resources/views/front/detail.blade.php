@@ -110,6 +110,7 @@
 @section('scripts')
     <script>
         $(document).on("click", ".comment-btn",function() {
+            e.preventDefault();
             let val = $('.cyber-blog__comment-textarea').val();
             if(!val) {
                 $('.validate-comment').html('Không được để trống bình luận!');

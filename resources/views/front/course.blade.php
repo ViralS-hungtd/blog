@@ -84,82 +84,100 @@
         <div class="col-12">
           <div class="cyber-learn__box">
               <div class="row">
-                  <span>01</span>
+                  <span class="title">Phần 1: Giới thiệu và làm quen câu lệnh </span>
               </div>
             <div class="row">
               <div class="col-lg-4">
                 <ul>
                   <li>
                     <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                      Giới thiệu và làm quen với phần mềm TinkerCard
                   </li>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>04</span>
+                      Vẽ Vương quốc loài hoa
                   </li>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
-                  </li>
-                  <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
-                  </li>
-                  <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>07</span>
+                      Vẽ Vật nuôi của bé
                   </li>
                 </ul>
               </div>
               <div class="col-lg-4">
                 <ul>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>02</span>
+                      Vẽ Ngôi nhà của bé
                   </li>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>05</span>
+                      Vẽ Đồ dùng học tập
                   </li>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
-                  </li>
-                  <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
-                  </li>
-                  <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>08</span>
+                      Vẽ Kì quan thế giới
                   </li>
                 </ul>
               </div>
               <div class="col-lg-4">
                 <ul>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>03</span>
+                      Vẽ Thế giới đồ chơi
                   </li>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>06</span>
+                      Vẽ Phương  tiện giao thông
                   </li>
                   <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
-                  </li>
-                  <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
-                  </li>
-                  <li>
-                    <span>01</span>
-                    Lorem ipsum dolor sit amet, consec-tetuer adipiscing elit, sed diamnonummy nibh euismod tincidunt ut
+                    <span>09</span>
+                      Sáng tạo tự do của bé
                   </li>
                 </ul>
               </div>
             </div>
+              <div class="row">
+                  <span class="title">Phần 2: Thiết kế  theo chủ đề lớn </span>
+              </div>
+              <div class="row">
+                  <div class="col-lg-4">
+                      <ul>
+                          <li>
+                              <span>10 - 11</span>
+                              Thiết kế nhân vật hoạt hình
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-4">
+                      <ul>
+                          <li>
+                              <span>12 - 13</span>
+                              Thiết kế lớp học
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-4">
+                      <ul>
+                          <li>
+                              <span>14 - 15 - 16</span>
+                              Thiết kế thành phố thông minh
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="row">
+                  <span class="title">Phần 3: Kiểm tra cuối kì </span>
+              </div>
+              <div class="row">
+                  <div class="col-lg-4">
+                      <ul>
+                          <li>
+                              <span>17 - 18</span>
+                              Kiểm tra cuối kì theo chủ đề được giao
+                          </li>
+                      </ul>
+                  </div>
+              </div>
           </div>
         </div>
       </div>
@@ -315,6 +333,9 @@
             .cyber-course__title .background {
                 font-size: 21px;
             }
+        }
+        .title {
+            font-size: 20px;
         }
     </style>
 @endsection
