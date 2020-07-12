@@ -51,11 +51,12 @@ class BlogController extends Controller
         return view('front.blog', compact('blogs', 'categories', 'hotBlogs'));
     }
 
-    public function show($id)
+    public function show($slug)
     {
         try {
-            Cookie::queue('blog_id', $id, 60);
-            $blog = Blog::find($id);
+            $blog = Blog::where('slug', $slug)->first();
+            $id = $blog->id;
+            Cookie::queue('blog_id', $slug, 60);
             $relatedBlogs = Blog::where('category_id', $blog->category_id)
                 ->where('status', true)
                 ->orderBy('id', 'DESC')

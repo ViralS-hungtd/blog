@@ -25,8 +25,8 @@
         <div class="cyber-news row">
             @foreach($firstBlogs as $firstBlog)
                 <div class="col-md-6 col-lg-4 mt-4">
-                    <a class="card" href="{{ route('blog.show', $firstBlog->id) }}">
-                        <img src="{{ asset($firstBlog->image) }}" class="card-img-top" alt="">
+                    <a class="card" href="{{ route('blog.show', $firstBlog->slug) }}">
+                        <img src="{{ asset($firstBlog->image) }}" class="card-img-top" alt="{{ $firstBlog->alt }}">
                         <div class="card-body">
                             <p class="card-text">{{ $firstBlog->title }}</p>
                         </div>
@@ -37,8 +37,8 @@
         <div class="cyber-news row">
             @foreach($otherBlogs as $otherBlog)
                 <div class="col-md-6 col-lg-4 mt-4">
-                    <a class="card flex-row" href="{{ route('blog.show', $otherBlog->id) }}">
-                        <img src="{{ asset($otherBlog->image) }}" class="card-img-top" alt="">
+                    <a class="card flex-row" href="{{ route('blog.show', $otherBlog->slug) }}">
+                        <img src="{{ asset($otherBlog->image) }}" class="card-img-top" alt="{{ $otherBlog->alt }}">
                         <div class="card-body">
                             <p class="card-text">{{ $otherBlog->title }}</p>
                         </div>

@@ -322,7 +322,7 @@
                 </h3>
                 <ul class="cyber-blog__list list-group">
                     @foreach($hotBlogs as $hotBlog)
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->id) }}">
+                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->slug) }}">
                             {{ $hotBlog->title }}
                         </a>
                     @endforeach

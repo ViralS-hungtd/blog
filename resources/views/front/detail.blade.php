@@ -68,7 +68,7 @@
                                 </div>
                                 @foreach($relatedBlogs as $relatedBlog)
                                     <div class="col-lg-4">
-                                        <a href="{{ route('blog.show', $relatedBlog->id) }}"
+                                        <a href="{{ route('blog.show', $relatedBlog->slug) }}"
                                            class="cyber-blog__related-item">
                                             <img src="{{ asset($relatedBlog->image) }}" alt=""
                                                  class="cyber-blog__related-item-img img-fluid">
@@ -98,7 +98,7 @@
                 </h3>
                 <ul class="cyber-blog__list list-group">
                     @foreach($hotBlogs as $hotBlog)
-                    <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->id) }}">
+                    <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->slug) }}">
                         {{ $hotBlog->title }}
                     </a>
                     @endforeach
