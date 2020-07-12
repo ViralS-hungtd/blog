@@ -33,7 +33,7 @@
                 <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $new->slug) }}">
                     <img src="{{ asset($new->image) }}" class="card-img-top" alt="{{ $new->alt }}">
                     <div class="card-body">
-                        <p class="card-text">{{ $firstBlog->title }}</p>
+                        <p class="card-text">{{ $new->title }}</p>
                     </div>
                 </a>
                 @endforeach
