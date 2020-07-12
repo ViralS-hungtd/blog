@@ -137,8 +137,7 @@ class BlogCrudController extends CrudController
                       'link',
                     'table',
                     'tableresize',
-                    'uicolor',
-                      'uploadfile'
+                    'uicolor'
                 ],
             ]);
             $this->crud->addField([
@@ -158,6 +157,13 @@ class BlogCrudController extends CrudController
                 'type' => 'upload',
                 'upload' => true
             ]);
+
+            $this->crud->addField([
+                'name' => 'alt',
+                'label' => 'CEO ảnh',
+                'type' => 'text'
+            ]);
+
             $this->crud->addField([
                 'name' => 'status',
                 'label' => 'Trạng thái',

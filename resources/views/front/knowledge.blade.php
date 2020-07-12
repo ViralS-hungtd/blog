@@ -1,5 +1,5 @@
 @extends('front.app')
-
+@section('title', 'Không gian mạng')
 @section('content')
     <div class="container cyber-container slide-top mb-5">
         <div class="cyber-blog mt-5 row">

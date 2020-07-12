@@ -19,7 +19,7 @@ class SocialController extends Controller
         $getInfo = Socialite::driver($provider)->user();
         $user = $this->createUser($getInfo,$provider);
         auth()->login($user);
-        $blogId = Cookie::get('blog_id') ?? Blog::orderBy('id', 'DESC')->first()->id;
+        $blogId = Cookie::get('blog_id') ?? Blog::orderBy('id', 'DESC')->first()->slug;
 
         return redirect()->route('blog.show', $blogId);
     }

@@ -1,5 +1,8 @@
 @extends('front.app')
-
+@section('title', 'Blog -  Tin tức')
+@section('meta')
+<meta property="og:image" content="{{ asset(@$blog->image) }}" />
+@endsection
 @section('content')
     <div class="container cyber-container slide-top">
         <div class="cyber-blog my-5 row">
@@ -70,9 +73,9 @@
                                 </div>
                                 @foreach($relatedBlogs as $relatedBlog)
                                     <div class="col-lg-4">
-                                        <a href="{{ route('blog.show', $relatedBlog->id) }}"
+                                        <a href="{{ route('blog.show', $relatedBlog->slug) }}"
                                            class="cyber-blog__related-item">
-                                            <img src="{{ asset($relatedBlog->image) }}" alt=""
+                                        <img src="{{ asset($relatedBlog->image) }}" alt="{{$relatedBlog->alt}}"
                                                  class="cyber-blog__related-item-img img-fluid">
                                             <p class="cyber-blog__related-item-text">
                                                 {{ $relatedBlog->title }}
@@ -100,7 +103,7 @@
                 </h3>
                 <ul class="cyber-blog__list list-group">
                     @foreach($hotBlogs as $hotBlog)
-                    <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->id) }}">
+                    <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->slug) }}">
                         {{ $hotBlog->title }}
                     </a>
                     @endforeach
@@ -112,6 +115,7 @@
 @section('scripts')
     <script>
         $(document).on("click", ".comment-btn",function() {
+            e.preventDefault();
             let val = $('.cyber-blog__comment-textarea').val();
             if(!val) {
                 $('.validate-comment').html('Không được để trống bình luận!');
@@ -122,7 +126,6 @@
                         'des': val,
                         'blog_id' : "{{ $blog->id }}"
                     },
-                    dataType: 'BOOLEAN',
                     complete : (response) => {
                         $('.cmt-zone').prepend(response);
                         $('.cyber-blog__comment-textarea').val('');

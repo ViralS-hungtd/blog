@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @yield('meta')
 {{--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">--}}
     <meta name="description"
           content="CyberKid là tổ chức phi chính phủ - thông qua việc hợp tác với Chính phủ, Doanh nghiệp, Nhà trường và cha mẹ để biến không gian mạng trở thành một thế giới an toàn và tuyệt vời cho mọi đứa trẻ tại Việt Nam và khu vực.">
@@ -12,7 +13,7 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/stylesheet/main1.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/stylesheet/toastr.min.css') }}">
-    <title>Về Cyber Kid | Cyber Kid</title>
+    <title>@yield('title') | Cyber Kid</title>
 </head>
 
 <body class="skin-blue sidebar-mini">

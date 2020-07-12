@@ -1,5 +1,8 @@
 @extends('front.app')
-
+@section('title', 'Hiểu về không gian mạng')
+@section('meta')
+<meta property="og:image" content="{{ asset('assets/images/image-02.png') }}" />
+@endsection
 @section('content')
     <div class="container cyber-container slide-top mb-5">
         <div class="cyber-blog mt-5 row">
@@ -322,7 +325,7 @@
                 </h3>
                 <ul class="cyber-blog__list list-group">
                     @foreach($hotBlogs as $hotBlog)
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->id) }}">
+                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->slug) }}">
                             {{ $hotBlog->title }}
                         </a>
                     @endforeach

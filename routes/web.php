@@ -38,7 +38,7 @@ Route::group([
     Route::post('/customer/store', 'CustomerController@store')->name('store.customer');
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/su-kien', 'BlogController@event')->name('event');
-    Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
+    Route::get('/blog/{slug}', 'BlogController@show')->name('blog.show');
     Route::get('/danh-muc/{id}', 'BlogController@category')->name('category');
     Route::get('/an-toan-tren-khong-gian-mang/hieu-ve-khong-gian-mang', 'BlogController@knowledge')->name('knowledge.info');
     Route::get('/an-toan-tren-khong-gian-mang/quyen-tre-em', 'BlogController@power')->name('knowledge.power');

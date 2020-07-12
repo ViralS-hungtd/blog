@@ -1,6 +1,6 @@
 
 @extends('front.app')
-
+@section('title', 'Quiz')
 @section('content')
     <div class="container cyber-container slide-top my-5">
         <div class="cyber-quiz row">

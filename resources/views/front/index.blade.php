@@ -1,5 +1,5 @@
-    @extends('front.app')
-
+@extends('front.app')
+@section('title', 'Trang chủ')
 @section('content')
     <div class="cyber-container-fluid cyber-hero__background mb-5">
         <div class="container cyber-container" data-scroll="out">
@@ -30,8 +30,8 @@
             </div>
             <div class="col-md-6 col-lg-4 mt-4">
                 @foreach($news as $key => $new)
-                <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $new->id) }}">
-                    <img src="{{ asset($new->image) }}" class="card-img-top" alt="">
+                <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $new->slug) }}">
+                    <img src="{{ asset($new->image) }}" class="card-img-top" alt="{{ $new->alt }}">
                     <div class="card-body">
                         <p class="card-text">{{ $firstBlog->title }}</p>
                     </div>
@@ -39,8 +39,9 @@
                 @endforeach
                 @if(count($news) < 3)
                   @for($i = 0; $i < 3 - count($news); $i++)
-                    <a class="card {{$i == 0 &&  count($news) == 0? '' : 'flex-row' }}" href="detail.html">
+                    <a class="card {{$i == 0 &&  count($news) == 0? '' : 'flex-row' }}" href="#">
                         <img src="/assets/images/family.png" class="card-img-top" alt="">
+
                         <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
@@ -56,8 +57,8 @@
             </div>
             <div class="col-md-6 col-lg-4 mt-4">
                 @foreach($blogs as $key => $blog)
-                <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $blog->id) }}">
-                    <img src="{{ asset($blog->image) }}" class="card-img-top" alt="">
+                <a class="card {{$key == 0 ? '' : 'flex-row' }}" href="{{ route('blog.show', $blog->slug) }}">
+                    <img src="{{ asset($blog->image) }}" class="card-img-top" alt="{{ $blog->alt }}">
                     <div class="card-body">
                         <p class="card-text">{{ $blog->title }}</p>
                     </div>
@@ -65,7 +66,7 @@
                 @endforeach
                 @if(count($blogs) < 3)
                   @for($i = 0; $i < 3 - count($blogs); $i++)
-                    <a class="card {{$i == 0 &&  count($blogs) == 0? '' : 'flex-row' }}" href="detail.html">
+                    <a class="card {{$i == 0 &&  count($blogs) == 0? '' : 'flex-row' }}" href="#">
                         <img src="/assets/images/family.png" class="card-img-top" alt="">
                         <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

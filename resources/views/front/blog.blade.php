@@ -1,5 +1,5 @@
 @extends('front.app')
-
+@section('title', 'Blog')
 @section('content')
     <div class="container cyber-container slide-top mb-5">
         <div class="cyber-blog mt-5 row">
@@ -19,7 +19,7 @@
                                 <p class="cyber-blog__text">
                                     {{ $blog->short_description }}
                                 </p>
-                                <a class="cyber-blog__more" href="{{ route('blog.show', $blog->id) }}">Xem thêm
+                                <a class="cyber-blog__more" href="{{ route('blog.show', $blog->slug) }}">Xem thêm
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </a>
                             </div>
@@ -42,7 +42,7 @@
                 </h3>
                 <ul class="cyber-blog__list list-group">
                     @foreach($hotBlogs as $hotBlog)
-                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->id) }}">
+                        <a class="cyber-blog__list-item list-group-item" href="{{ route('blog.show', $hotBlog->slug) }}">
                             {{ $hotBlog->title }}
                         </a>
                     @endforeach
