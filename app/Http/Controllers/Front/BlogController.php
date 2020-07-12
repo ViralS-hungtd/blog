@@ -117,10 +117,11 @@ class BlogController extends Controller
             'user_id' => Auth::user()->id
         ]);
         return  '<div class="cyber-blog__comment-item">
-                                        <img style="width: auto; height: 30px" class="cyber-blog__comment-avatar" src="https://graph.facebook.com/"'.$comment->user->provider_id.'"/picture" }}" alt="">
-                                        <p><b>'.$comment->user->name.'</b></p>
-                                        <p>'.$comment->content.'</p>
-                                    </div>';
+                    <img class="cyber-blog__comment-avatar" src="https://graph.facebook.com/" '.$comment->user->provider_id. '"/picture" alt="">
+                    <div class="form-group">
+                        <label class="cyber-blog__content_comment"><b>' .$comment->user->name .'</b>: ' .$comment->content .'</label>
+                    </div>
+                </div>';
     }
 
     public function quiz()
