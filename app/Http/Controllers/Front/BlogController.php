@@ -117,7 +117,7 @@ class BlogController extends Controller
             'user_id' => Auth::user()->id
         ]);
         return  '<div class="cyber-blog__comment-item">
-                    <img class="cyber-blog__comment-avatar" src="https://graph.facebook.com/" '.$comment->user->provider_id. '"/picture" alt="">
+                    <img class="cyber-blog__comment-avatar" src="https://graph.facebook.com/'.$comment->user->provider_id. '/picture" alt="">
                     <div class="form-group">
                         <label class="cyber-blog__content_comment"><b>' .$comment->user->name .'</b>: ' .$comment->content .'</label>
                     </div>
