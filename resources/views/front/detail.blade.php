@@ -121,7 +121,6 @@
                         'des': val,
                         'blog_id' : "{{ $blog->id }}"
                     },
-                    dataType: 'BOOLEAN',
                     complete : (response) => {
                         $('.cmt-zone').prepend(response);
                         $('.cyber-blog__comment-textarea').val('');
