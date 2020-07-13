@@ -112,6 +112,14 @@ class BlogCrudController extends CrudController
                 'label' => 'Mô tả ngắn',
                 'type' => 'textarea'
             ]);
+//            $this->crud->addField([
+//                'name' => 'content',
+//                'label' => 'Nội dung',
+//                'type' => 'textarea',
+//                'attributes' => [
+//                    'class'       => 'form-control ckeditor',
+//                ], // ch
+//            ]);
             $this->crud->addField([
                 'name' => 'content',
                 'label' => 'Nội dung',
@@ -121,25 +129,25 @@ class BlogCrudController extends CrudController
                     'embed',
                     'widget',
                     'about',
-//                    'adobeair',
+                    'clipboard',
 //                    'autogrow',
 //                    'autolink',
                     'balloonpanel',
                     'balloontoolbar',
 //                    'bbcode',
 //                    'bidi',
-                    'clipboard',
                     'emoji',
                     'find',
-//                    'flash',
-//                    'iframe',
+                    'flash',
+                    'iframe',
                       'justify',
                       'link',
                     'table',
                     'tableresize',
                     'uicolor',
                     'widget',
-                    'link'
+                    'link',
+                    'video'
                 ],
             ]);
             $this->crud->addField([
