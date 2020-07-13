@@ -1,5 +1,5 @@
 @extends('front.app')
-@section('title', {{ $blog->title }})
+@section('title', $blog->title)
 @section('meta')
 <meta property="og:image" content="{{ asset(@$blog->image) }}" />
 @endsection

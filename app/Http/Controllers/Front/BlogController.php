@@ -14,7 +14,6 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Database\Eloquent\Builder;
-use phpDocumentor\Reflection\DocBlock\Tag;
 
 class BlogController extends Controller
 {
@@ -157,7 +156,7 @@ class BlogController extends Controller
 
     public function tag($slug)
     {
-        $tag = Tag::where('slug', $slug)->first();
+        $tag = \App\Models\Tag::where('slug', $slug)->first();
 
         $blogs = $tag->blog;
 
