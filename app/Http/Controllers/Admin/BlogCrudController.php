@@ -137,7 +137,9 @@ class BlogCrudController extends CrudController
                       'link',
                     'table',
                     'tableresize',
-                    'uicolor'
+                    'uicolor',
+                    'widget',
+                    'link'
                 ],
             ]);
             $this->crud->addField([

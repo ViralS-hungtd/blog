@@ -26,7 +26,7 @@
                         {!! $blog->content !!}
                         <div class="cyber-blog__hashtag">
                             @foreach($blog->tags as $tag)
-                                <span class="badge badge-pill badge-info">{{ $tag->name }}</span>
+                                <a href="{{ route('tag', $tag->slug) }}"><span class="badge badge-pill badge-info">{{ $tag->name }}</span></a>
                             @endforeach
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                                         <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-info">Gửi bình luận</a>
                                     @endif
                                 </div>
-                                
+
                                 <div class="cmt-zone">
                                     @foreach($comments as $comment)
                                     <div class="cyber-blog__comment-item">

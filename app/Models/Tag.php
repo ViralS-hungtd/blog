@@ -25,7 +25,7 @@ class Tag extends Model
     protected $fillable = ['name', 'slug'];
     // protected $hidden = [];
     // protected $dates = [];
-
+    const BLOG = 0;
     /**
      * Return the sluggable configuration array for this model.
      *
@@ -54,7 +54,7 @@ class Tag extends Model
 
     public function blog()
     {
-        return $this->belongsToMany(Blog::class, 'blog_tag');
+        return $this->belongsToMany(Blog::class, 'blog_tag')->where('type', self::BLOG);
     }
 
     /*

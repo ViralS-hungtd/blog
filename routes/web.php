@@ -45,4 +45,5 @@ Route::group([
     Route::get('/cau-hoi', 'BlogController@quiz')->name('quiz');
     Route::get('/cau-hoi/chi-tiet', 'BlogController@detailQuiz')->name('quiz.show');
     Route::get('/quiz/store', 'BlogController@storeQuiz')->name('store.quiz');
+    Route::get('/tag/{slug}', 'BlogController@tag')->name('tag');
 }); // this should be the absolute last line of this file

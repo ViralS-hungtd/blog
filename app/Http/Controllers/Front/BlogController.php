@@ -14,23 +14,25 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Database\Eloquent\Builder;
+use phpDocumentor\Reflection\DocBlock\Tag;
 
 class BlogController extends Controller
 {
     const BLOG = 0;
     const BAI_VIET = 1;
+
     public function index(Request $request)
     {
-        if($request->search) {
+        if ($request->search) {
             $search = $request->search;
-            $blogs =  Blog::where('status', true)
+            $blogs = Blog::where('status', true)
                 ->where('type', self::BLOG)
                 ->where(function (Builder $query) use ($search) {
                     return $query->whereHas('tags', function (Builder $query) use ($search) {
                         $query->where('name', 'LIKE', "%$search%");
                     })->orwhere('title', 'LIKE', "%$search%")
-                    ->orWhere('content', 'LIKE', "%$search%")
-                    ->orWhere('short_description', 'LIKE', "%$search%");
+                        ->orWhere('content', 'LIKE', "%$search%")
+                        ->orWhere('short_description', 'LIKE', "%$search%");
                 })
                 ->get();
         } else {
@@ -44,7 +46,7 @@ class BlogController extends Controller
 
     public function category($id)
     {
-        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('type', self::BLOG)->orderBy('id', 'DESC')->get();
         $blogs = Blog::where('category_id', $id)->where('status', true)->get();
         $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
 
@@ -62,7 +64,7 @@ class BlogController extends Controller
                 ->orderBy('id', 'DESC')
                 ->take(4)
                 ->get();
-            $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+            $categories = Category::where('type', self::BLOG)->orderBy('id', 'DESC')->get();
             $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
             $comments = Comment::with('user')->where('blog_id', $id)->orderBy('id', 'DESC')->get();
 
@@ -75,7 +77,7 @@ class BlogController extends Controller
 
     public function knowledge()
     {
-        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('type', self::BLOG)->orderBy('id', 'DESC')->get();
         $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
 
         return view('front.knowledge_info', compact('categories', 'hotBlogs'));
@@ -83,7 +85,7 @@ class BlogController extends Controller
 
     public function power()
     {
-        $categories = Category::where('type',self::BLOG)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('type', self::BLOG)->orderBy('id', 'DESC')->get();
         $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
 
         return view('front.knowledge_power', compact('categories', 'hotBlogs'));
@@ -91,7 +93,7 @@ class BlogController extends Controller
 
     public function event()
     {
-        $categories = Category::where('type',self::BAI_VIET)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('type', self::BAI_VIET)->orderBy('id', 'DESC')->get();
         $blogs = collect();
         if ($categories->first()) {
             $blogs = Blog::where('category_id', $categories->first()->id)->where('status', true)->get();
@@ -116,10 +118,10 @@ class BlogController extends Controller
             'blog_id' => $request->blog_id,
             'user_id' => Auth::user()->id
         ]);
-        return  '<div class="cyber-blog__comment-item">
-                    <img class="cyber-blog__comment-avatar" src="https://graph.facebook.com/'.$comment->user->provider_id. '/picture" alt="">
+        return '<div class="cyber-blog__comment-item">
+                    <img class="cyber-blog__comment-avatar" src="https://graph.facebook.com/' . $comment->user->provider_id . '/picture" alt="">
                     <div class="form-group">
-                        <label class="cyber-blog__content_comment"><b>' .$comment->user->name .'</b>: ' .$comment->content .'</label>
+                        <label class="cyber-blog__content_comment"><b>' . $comment->user->name . '</b>: ' . $comment->content . '</label>
                     </div>
                 </div>';
     }
@@ -151,5 +153,16 @@ class BlogController extends Controller
         $questions = Question::all();
 
         return view('front.quiz_detail', compact('questions'));
+    }
+
+    public function tag($slug)
+    {
+        $tag = Tag::where('slug', $slug)->first();
+
+        $blogs = $tag->blog;
+
+        $hotBlogs = Blog::where('status', true)->where('type', self::BLOG)->orderBy('id', 'DESC')->take(8)->get();
+
+        return view('front.blog', compact('blogs', 'hotBlogs'));
     }
 }
