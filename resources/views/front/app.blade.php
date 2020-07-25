@@ -106,6 +106,13 @@
 <script src="{{ asset('assets/javascript/main.js') }}"></script>
 <script src="{{ asset('assets/javascript/toastr.min.js') }}"></script>
 <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-170077287-1');
+</script>
+<script>
     $(document).on("click", ".register-btn",function() {
         event.preventDefault();
         let data = $('.register-form').serializeArray();
