@@ -105,6 +105,7 @@
 <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 <script src="{{ asset('assets/javascript/main.js') }}"></script>
 <script src="{{ asset('assets/javascript/toastr.min.js') }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170077287-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
