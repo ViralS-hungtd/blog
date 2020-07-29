@@ -12,15 +12,15 @@
           <p>Nếu bạn muốn chia sẻ câu chuyện của chính mình, hoặc có bất kì câu hỏi nào, hãy liên hệ với chúng tôi!</p>
             <b>Để biết thêm thông tin chi tiết về dự án CyberKid, vui lòng liên hệ:</b>
             <ol style="list-style-type: none;">
-                <li>Chị Nguyễn Thị Thu Hương</li>
-                <li>Giám đốc Dự án</li>
-                <li>CT1, A10, Khu đô thị Nam Trung Yên</li>
+                <li>Chị Nguyễn Như Quỳnh</li>
+                <li>CT1, A10, Khu đô Thị Nam Trung Yên</li>
                 <li>Cầu Giấy, Hà Nội</li>
-                <li>SDT: +84 898 456 456 </li>
+                <li>SDT: +84 939998086</li>
+                <li>Email: quynh.nguyennhu@cyberkid.vn</li>
             </ol>
             <b>Đồng hành cùng CyberKid:</b>
             <ol style="list-style-type: none;">
-                <li>Website: <a href="https://www.facebook.com/cyberkid.vietnam/" target="__blank"> https://staging.cyberkid.vn </a> </li>
+                <li>Website: <a href="https://www.facebook.com/cyberkid.vietnam/" target="__blank"> https://cyberkid.vn </a> </li>
                 <li>Facebook: <a href="https://www.facebook.com/cyberkid.vietnam/" target="__blank"> https://www.facebook.com/cyberkid.vietnam </a></li>
                 <li>Email: info@cyberkid.vn </li>
             </ol>
